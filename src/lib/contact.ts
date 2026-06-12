@@ -1,5 +1,7 @@
+const PHONE_NUMBER = "4433541269";
+
 export const PHONE_DISPLAY = "(44) 3354-1269";
-export const PHONE_E164 = "554433541269";
+export const PHONE_E164 = `55${PHONE_NUMBER}`;
 export const EMAIL = "comercial.colderclimatizadores@gmail.com";
 export const ADDRESS = {
   street: "Rua Rodolfo Cremm, 18.872",

@@ -35,7 +35,7 @@ export function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="container-page flex h-16 items-center justify-between">
+      <div className="container-page site-header-inner flex h-14 items-center justify-between md:h-16">
         {/* Logo — sempre branca: o header fica sobre hero escuro ou fundo brand */}
         <Logo light />
 
@@ -74,12 +74,12 @@ export function Header() {
         {/* Botão hamburger mobile — glass em ambos os estados */}
         <button
           type="button"
-          className="md:hidden grid h-10 w-10 place-items-center rounded-lg border border-white/30 bg-white/10 text-white transition-colors hover:bg-white/20"
+          className="grid h-11 w-11 place-items-center rounded-[0.7rem] border border-white/20 bg-white/[0.08] text-white shadow-[0_8px_22px_-14px_rgba(255,255,255,0.8)] backdrop-blur-md transition-colors hover:bg-white/15 md:hidden"
           aria-label={open ? "Fechar menu" : "Abrir menu"}
           aria-expanded={open}
           onClick={() => setOpen((o) => !o)}
         >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
         </button>
       </div>
 
@@ -92,7 +92,10 @@ export function Header() {
               : "border-white/10 bg-[rgba(15,23,42,0.92)] backdrop-blur-md"
           }`}
         >
-          <nav className="container-page flex flex-col py-3" aria-label="Navegação mobile">
+          <nav
+            className="container-page site-header-inner flex flex-col py-3"
+            aria-label="Navegação mobile"
+          >
             {NAV.map((item) => (
               <a
                 key={item.href}

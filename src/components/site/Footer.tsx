@@ -1,5 +1,5 @@
 import { Logo } from "./Logo";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Instagram } from "lucide-react";
 import { ADDRESS, PHONE_DISPLAY, EMAIL } from "@/lib/contact";
 
 const NAV = [
@@ -59,7 +59,17 @@ export function Footer() {
           </FooterCol>
 
           <FooterCol title="Siga-nos">
-            <li className="text-sm text-white/70">Em breve, nossas redes sociais.</li>
+            <li>
+              <a
+                href="https://www.instagram.com/colderclimatizadores/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-cyan-400"
+              >
+                <Instagram className="h-4 w-4 shrink-0" />
+                Instagram
+              </a>
+            </li>
           </FooterCol>
         </div>
 

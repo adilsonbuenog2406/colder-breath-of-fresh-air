@@ -76,17 +76,20 @@ export function Clients() {
 
   return (
     <section
-      className="pt-10 pb-14 sm:pt-14 sm:pb-[4.5rem]"
+      className="pt-12 pb-16 sm:pt-14 sm:pb-[4.5rem]"
       style={{ background: "var(--color-surface)" }}
       aria-labelledby="clients-heading"
     >
       {/* Cabeçalho centralizado dentro do container */}
-      <div className="container-page mb-7 text-center">
+      <div className="container-page mb-6 text-center sm:mb-7">
         <span className="eyebrow">Nossos clientes</span>
-        <h2 id="clients-heading" className="mt-3 text-3xl font-bold sm:text-4xl">
+        <h2
+          id="clients-heading"
+          className="mx-auto mt-3 max-w-[22rem] text-2xl font-bold leading-tight sm:max-w-none sm:text-4xl"
+        >
           Empresas que confiam na Colder
         </h2>
-        <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
+        <p className="mx-auto mt-4 max-w-[17.5rem] text-sm leading-relaxed text-muted-foreground min-[414px]:max-w-[21rem] sm:mt-3 sm:max-w-xl sm:text-base">
           Soluções de climatização industrial e empresarial para ambientes mais eficientes,
           saudáveis e econômicos.
         </p>
