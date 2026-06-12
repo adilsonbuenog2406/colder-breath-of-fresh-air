@@ -174,3 +174,8 @@
   text-transform: uppercase;
   color: var(--color-brand);
 }
+
+/* ── Marquee de logos ─────────────────────────────────────────── */
+@keyframes marquee-scroll {
+  to { transform: translateX(-50%); }
+}

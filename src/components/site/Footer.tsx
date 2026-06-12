@@ -3,10 +3,13 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import { ADDRESS, PHONE_DISPLAY, EMAIL } from "@/lib/contact";
 
 const NAV = [
-  { href: "#top", label: "Home" },
-  { href: "#quem-somos", label: "Quem Somos" },
-  { href: "#areas", label: "Áreas de Atuação" },
-  { href: "#contato", label: "Contato" },
+  { href: "/", label: "Home" },
+  { href: "/quem-somos", label: "Quem Somos" },
+  { href: "/areas-de-atuacao", label: "Áreas de Atuação" },
+  { href: "/solucoes/climatizadores-industriais", label: "Climatizadores Industriais" },
+  { href: "/segmentos/climatizadores-para-igrejas", label: "Climatizadores para Igrejas" },
+  { href: "/cidades/climatizadores-industriais-em-maringa", label: "Climatizadores em Maringá" },
+  { href: "/contato", label: "Contato" },
 ];
 
 export function Footer() {
@@ -20,8 +23,8 @@ export function Footer() {
           <div>
             <Logo light />
             <p className="mt-4 max-w-xs text-sm text-white/70">
-              Especialistas em climatização evaporativa para indústrias, empresas
-              e ambientes corporativos.
+              Especialistas em climatização evaporativa para indústrias, empresas e ambientes
+              corporativos.
             </p>
           </div>
 
@@ -39,7 +42,8 @@ export function Footer() {
             <li className="flex items-start gap-2 text-sm text-white/70">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
               <span>
-                {ADDRESS.street}, {ADDRESS.neighborhood}<br />
+                {ADDRESS.street}, {ADDRESS.neighborhood}
+                <br />
                 {ADDRESS.city} - {ADDRESS.state}
               </span>
             </li>
@@ -55,9 +59,7 @@ export function Footer() {
           </FooterCol>
 
           <FooterCol title="Siga-nos">
-            <li className="text-sm text-white/70">
-              Em breve, nossas redes sociais.
-            </li>
+            <li className="text-sm text-white/70">Em breve, nossas redes sociais.</li>
           </FooterCol>
         </div>
 
@@ -72,9 +74,7 @@ export function Footer() {
 function FooterCol({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
-        {title}
-      </h3>
+      <h3 className="text-sm font-semibold uppercase tracking-wider text-white">{title}</h3>
       <ul className="mt-4 space-y-3">{children}</ul>
     </div>
   );

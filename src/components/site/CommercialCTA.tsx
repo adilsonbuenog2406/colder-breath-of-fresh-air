@@ -61,11 +61,10 @@ export function CommercialCTA() {
             Trabalhamos com os climatizadores mais completos do Brasil
           </h3>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            Nossos climatizadores evaporativos são desenvolvidos para atender
-            ambientes comerciais, industriais e residenciais. Diferente do sistema
-            de ar-condicionado, eles não possuem compressores, dispensam
-            condensadores e sistemas de alta pressão, colaborando para a redução
-            do consumo de energia elétrica.
+            Nossos climatizadores evaporativos são desenvolvidos para atender ambientes comerciais,
+            industriais e residenciais. Diferente do sistema de ar-condicionado, eles não possuem
+            compressores, dispensam condensadores e sistemas de alta pressão, colaborando para a
+            redução do consumo de energia elétrica.
           </p>
         </div>
       </div>

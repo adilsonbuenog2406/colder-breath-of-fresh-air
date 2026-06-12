@@ -39,19 +39,20 @@ export function Products() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
             <span className="eyebrow">Produtos em destaque</span>
-            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-              Linhas para cada operação
-            </h2>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Linhas para cada operação</h2>
             <p className="mt-3 text-muted-foreground">
-              Conheça soluções de climatização evaporativa para diferentes
-              tamanhos de ambiente e necessidades.
+              Conheça soluções de climatização evaporativa para diferentes tamanhos de ambiente e
+              necessidades.
             </p>
           </div>
         </div>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {PRODUCTS.map((p) => (
-            <article key={p.title} className="card-soft card-soft-hover overflow-hidden flex flex-col">
+            <article
+              key={p.title}
+              className="card-soft card-soft-hover overflow-hidden flex flex-col"
+            >
               <div className="aspect-square overflow-hidden bg-white">
                 <img
                   src={p.img}

@@ -78,7 +78,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Colder Climatizadores | Climatização Industrial em Maringá" },
-      { name: "description", content: "Especialistas em climatizadores evaporativos para indústrias, empresas e ambientes corporativos." },
+      {
+        name: "description",
+        content:
+          "Especialistas em climatizadores evaporativos para indústrias, empresas e ambientes corporativos.",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -98,7 +102,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>

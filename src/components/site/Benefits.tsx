@@ -33,8 +33,8 @@ export function Benefits() {
             Conforto térmico com eficiência real
           </h2>
           <p className="mt-3 text-muted-foreground">
-            Soluções pensadas para ambientes corporativos e industriais que exigem
-            qualidade do ar, redução de temperatura e economia operacional.
+            Soluções pensadas para ambientes corporativos e industriais que exigem qualidade do ar,
+            redução de temperatura e economia operacional.
           </p>
         </div>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">

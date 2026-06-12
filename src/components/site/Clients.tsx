@@ -1,25 +1,132 @@
+import { useState } from "react";
+import { clients } from "@/data/clients";
+import type { Client } from "@/data/clients";
+
+// ── Card individual ────────────────────────────────────────────
+interface CardProps {
+  client: Client;
+  ariaHidden?: boolean;
+}
+
+function ClientCard({ client, ariaHidden = false }: CardProps) {
+  const inner = (
+    <div
+      aria-hidden={ariaHidden || undefined}
+      tabIndex={ariaHidden ? -1 : undefined}
+      className="
+        flex h-24 w-44 shrink-0 flex-col items-center justify-center gap-2
+        rounded-xl border border-border bg-white px-4 py-4
+        shadow-[0_1px_4px_rgba(15,23,42,0.06)]
+        transition-all duration-300 ease-out
+        hover:scale-[1.08]
+        hover:border-[var(--color-brand)]
+        hover:shadow-[0_10px_30px_-8px_color-mix(in_oklab,var(--color-brand)_28%,transparent)]
+      "
+    >
+      {client.logo ? (
+        <img
+          src={client.logo}
+          alt={client.alt ?? `Logo ${client.name}`}
+          width={264}
+          height={54}
+          className="h-[54px] w-full object-contain"
+          loading="lazy"
+          decoding="async"
+        />
+      ) : (
+        /* Fallback: inicial com fundo brand */
+        <span
+          className="grid h-10 w-10 shrink-0 place-items-center rounded-lg text-sm font-bold text-white select-none"
+          style={{ background: "var(--color-brand)" }}
+        >
+          {client.name.charAt(0)}
+        </span>
+      )}
+
+      <p className="w-full truncate text-center text-[11px] font-semibold leading-tight text-foreground">
+        {client.name}
+      </p>
+    </div>
+  );
+
+  // Card clicável quando client.url estiver preenchido
+  if (client.url && !ariaHidden) {
+    return (
+      <a
+        href={client.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] rounded-xl"
+      >
+        {inner}
+      </a>
+    );
+  }
+
+  return inner;
+}
+
+// ── Seção principal ────────────────────────────────────────────
 export function Clients() {
+  const [paused, setPaused] = useState(false);
+  const clientsWithLogo = clients.filter((client) => client.logo);
+
+  // Dois conjuntos idênticos: ao atingir -50% o loop é imperceptível
+  const doubled = [...clientsWithLogo, ...clientsWithLogo];
+
   return (
-    <section className="section-pad" style={{ background: "var(--color-surface)" }}>
-      <div className="container-page text-center">
-        <span className="eyebrow">Confiança</span>
-        <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-          Alguns de nossos clientes
+    <section
+      className="pt-10 pb-14 sm:pt-14 sm:pb-[4.5rem]"
+      style={{ background: "var(--color-surface)" }}
+      aria-labelledby="clients-heading"
+    >
+      {/* Cabeçalho centralizado dentro do container */}
+      <div className="container-page mb-7 text-center">
+        <span className="eyebrow">Nossos clientes</span>
+        <h2 id="clients-heading" className="mt-3 text-3xl font-bold sm:text-4xl">
+          Empresas que confiam na Colder
         </h2>
         <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-          Empresas e indústrias que escolheram a Colder para climatizar seus
-          ambientes com eficiência.
+          Soluções de climatização industrial e empresarial para ambientes mais eficientes,
+          saudáveis e econômicos.
         </p>
+      </div>
 
-        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <div
-              key={i}
-              className="flex h-20 items-center justify-center rounded-lg border border-dashed border-border bg-white text-xs uppercase tracking-widest text-muted-foreground/70"
-              aria-label="Espaço reservado para logo de cliente"
-            >
-              Logo cliente
-            </div>
+      {/*
+        Trilho do marquee — sem container-page para ocupar a largura toda.
+        overflow-hidden: corta o conteúdo que passa das bordas.
+        maskImage: dissolve suavemente nas extremidades esquerda e direita.
+      */}
+      <div
+        className="relative overflow-hidden"
+        style={{
+          maskImage:
+            "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
+        }}
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
+        {/*
+          Fila única: doubled = 24 itens em sequência.
+          A animação desloca -50% (= largura dos 12 originais).
+          Quando chega ao fim, reinicia do zero — loop perfeitamente contínuo.
+        */}
+        <div
+          className="flex w-max gap-4 py-2"
+          style={{
+            animation: "marquee-scroll 38s linear infinite",
+            animationPlayState: paused ? "paused" : "running",
+            willChange: "transform",
+          }}
+        >
+          {doubled.map((client, i) => (
+            <ClientCard
+              key={`${i}-${client.id}`}
+              client={client}
+              ariaHidden={i >= clientsWithLogo.length}
+            />
           ))}
         </div>
       </div>

@@ -33,17 +33,14 @@ export function Differentials() {
             Engenharia pensada para alto desempenho
           </h2>
           <p className="mt-3 text-muted-foreground">
-            Cada componente é projetado para entregar maior eficiência, menor ruído
-            e vida útil prolongada nos ambientes mais exigentes.
+            Cada componente é projetado para entregar maior eficiência, menor ruído e vida útil
+            prolongada nos ambientes mais exigentes.
           </p>
         </div>
 
         <div className="mt-10 grid gap-5 md:grid-cols-2">
           {ITEMS.map(({ icon: Icon, title, text }) => (
-            <article
-              key={title}
-              className="card-soft card-soft-hover flex gap-5 p-6 sm:p-7"
-            >
+            <article key={title} className="card-soft card-soft-hover flex gap-5 p-6 sm:p-7">
               <div
                 className="grid h-12 w-12 shrink-0 place-items-center rounded-lg"
                 style={{ background: "var(--color-brand-soft)" }}
@@ -52,9 +49,7 @@ export function Differentials() {
               </div>
               <div className="min-w-0">
                 <h3 className="text-lg font-semibold">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {text}
-                </p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p>
               </div>
             </article>
           ))}

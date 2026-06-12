@@ -10,15 +10,14 @@ export function About() {
             Colder Climatizadores: eficiência em climatização
           </h2>
           <p className="mt-5 text-muted-foreground leading-relaxed">
-            Nossos climatizadores evaporativos possuem tecnologia desenvolvida para
-            ambientes comerciais e industriais. Garantimos um clima mais saudável,
-            confortável e uma redução na conta de energia de até 90% em comparação
-            ao ar-condicionado tradicional.
+            Nossos climatizadores evaporativos possuem tecnologia desenvolvida para ambientes
+            comerciais e industriais. Garantimos um clima mais saudável, confortável e uma redução
+            na conta de energia de até 90% em comparação ao ar-condicionado tradicional.
           </p>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            Acompanhamos sua empresa em todo o processo: desde a escolha do sistema
-            de climatização ideal até a instalação completa. Também oferecemos
-            suporte contínuo para garantir o melhor desempenho.
+            Acompanhamos sua empresa em todo o processo: desde a escolha do sistema de climatização
+            ideal até a instalação completa. Também oferecemos suporte contínuo para garantir o
+            melhor desempenho.
           </p>
           <a href="#contato" className="btn-primary mt-7">
             Saiba mais <ArrowRight className="h-4 w-4" />
@@ -26,10 +25,7 @@ export function About() {
         </div>
 
         <div className="relative">
-          <div
-            className="rounded-2xl p-8 sm:p-10"
-            style={{ background: "var(--color-surface)" }}
-          >
+          <div className="rounded-2xl p-8 sm:p-10" style={{ background: "var(--color-surface)" }}>
             <ul className="space-y-4">
               {[
                 "Projetos sob medida para cada ambiente",

@@ -7,12 +7,10 @@ export function Contact() {
       <div className="container-page grid gap-10 lg:grid-cols-2 lg:items-start">
         <div>
           <span className="eyebrow">Contato</span>
-          <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-            Vamos climatizar seu ambiente?
-          </h2>
+          <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Vamos climatizar seu ambiente?</h2>
           <p className="mt-3 max-w-md text-muted-foreground">
-            Fale com nossa equipe e receba uma proposta sob medida para sua
-            empresa, indústria ou galpão.
+            Fale com nossa equipe e receba uma proposta sob medida para sua empresa, indústria ou
+            galpão.
           </p>
 
           <a
@@ -28,8 +26,10 @@ export function Contact() {
 
         <div className="card-soft p-7 sm:p-8 space-y-5">
           <ContactItem icon={MapPin} title="Endereço">
-            {ADDRESS.street}<br />
-            {ADDRESS.neighborhood}<br />
+            {ADDRESS.street}
+            <br />
+            {ADDRESS.neighborhood}
+            <br />
             {ADDRESS.city} - {ADDRESS.state} · CEP: {ADDRESS.zip}
           </ContactItem>
           <ContactItem icon={Phone} title="Telefone">
@@ -38,7 +38,12 @@ export function Contact() {
             </a>
           </ContactItem>
           <ContactItem icon={MessageCircle} title="WhatsApp">
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="hover:underline">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
               {PHONE_DISPLAY}
             </a>
           </ContactItem>

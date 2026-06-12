@@ -19,8 +19,8 @@ export function Areas() {
             Soluções para cada tipo de ambiente
           </h2>
           <p className="mt-3 text-muted-foreground">
-            Climatização evaporativa para espaços que exigem conforto térmico,
-            renovação constante do ar e economia operacional.
+            Climatização evaporativa para espaços que exigem conforto térmico, renovação constante
+            do ar e economia operacional.
           </p>
         </div>
 
