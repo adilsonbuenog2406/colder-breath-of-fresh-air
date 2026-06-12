@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://colderclimatizadores.com.br/sitemap.xml

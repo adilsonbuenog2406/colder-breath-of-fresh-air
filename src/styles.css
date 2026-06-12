@@ -1,0 +1,181 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-soft: var(--brand-soft);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --font-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.75rem;
+  /* Light mode first — branco, cinzas e ciano frio */
+  --background: oklch(1 0 0);
+  --surface: oklch(0.985 0.003 240);
+  --surface-muted: oklch(0.965 0.005 240);
+  --foreground: oklch(0.22 0.02 250);            /* cinza chumbo */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.02 250);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.02 250);
+  --primary: oklch(0.28 0.025 250);              /* chumbo escuro */
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.95 0.01 240);
+  --secondary-foreground: oklch(0.28 0.025 250);
+  --muted: oklch(0.96 0.005 240);
+  --muted-foreground: oklch(0.48 0.015 250);
+  --accent: oklch(0.93 0.04 220);
+  --accent-foreground: oklch(0.28 0.025 250);
+  --brand: oklch(0.66 0.13 220);                 /* ciano frio de apoio */
+  --brand-foreground: oklch(0.99 0 0);
+  --brand-soft: oklch(0.95 0.04 220);
+  --destructive: oklch(0.58 0.22 27);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.92 0.008 240);
+  --input: oklch(0.92 0.008 240);
+  --ring: oklch(0.66 0.13 220);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 1200px;
+  padding-inline: 1.25rem;
+}
+
+@utility section-pad {
+  padding-block: clamp(3.5rem, 8vw, 6rem);
+}
+
+@utility card-soft {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -16px rgba(15, 23, 42, 0.12);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+@utility card-soft-hover {
+  &:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in oklab, var(--color-brand) 30%, var(--color-border));
+    box-shadow: 0 4px 8px rgba(15, 23, 42, 0.06), 0 16px 40px -20px rgba(15, 23, 42, 0.2);
+  }
+}
+
+@utility btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .8rem 1.4rem;
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  font-size: .95rem;
+  background: var(--color-brand);
+  color: var(--color-brand-foreground);
+  transition: background .2s ease, transform .15s ease, box-shadow .2s ease;
+  box-shadow: 0 6px 20px -8px color-mix(in oklab, var(--color-brand) 60%, transparent);
+  &:hover { background: color-mix(in oklab, var(--color-brand) 88%, black); }
+  &:active { transform: translateY(1px); }
+}
+
+@utility btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .8rem 1.4rem;
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  font-size: .95rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-background);
+  color: var(--color-foreground);
+  transition: border-color .2s ease, background .2s ease;
+  &:hover {
+    border-color: var(--color-brand);
+    background: var(--color-brand-soft);
+  }
+}
+
+@utility btn-ghost-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .8rem 1.4rem;
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  font-size: .95rem;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.35);
+  backdrop-filter: blur(6px);
+  &:hover { background: rgba(255,255,255,0.18); }
+}
+
+@utility eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--color-brand);
+}
+
+/* ── Marquee de logos ─────────────────────────────────────────── */
+@keyframes marquee-scroll {
+  to { transform: translateX(-50%); }
+}
