@@ -10,7 +10,9 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { MetaPixelRouteTracker } from "../components/analytics/MetaPixel";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { META_PIXEL_BOOTSTRAP, META_PIXEL_ID } from "../lib/meta-pixel";
 
 function NotFoundComponent() {
   return (
@@ -93,6 +95,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap",
       },
     ],
+    scripts: [
+      {
+        type: "text/javascript",
+        children: META_PIXEL_BOOTSTRAP,
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -108,6 +116,15 @@ function RootShell({ children }: { children: ReactNode }) {
       </head>
       <body>
         {children}
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            alt=""
+            src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
+          />
+        </noscript>
         <Scripts />
       </body>
     </html>
@@ -119,6 +136,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <MetaPixelRouteTracker />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>

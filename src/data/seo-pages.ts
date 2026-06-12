@@ -1176,6 +1176,7 @@ export const indexablePaths = [
   "/quem-somos",
   "/areas-de-atuacao",
   "/contato",
+  "/formulario-interessados",
   ...allSeoPages.map((page) => page.path),
   ...blogPages.map((page) => page.path),
 ];

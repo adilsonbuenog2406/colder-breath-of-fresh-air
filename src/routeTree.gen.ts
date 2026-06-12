@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as QuemSomosRouteImport } from './routes/quem-somos'
+import { Route as FormularioInteressadosRouteImport } from './routes/formulario-interessados'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as AreasDeAtuacaoRouteImport } from './routes/areas-de-atuacao'
 import { Route as IndexRouteImport } from './routes/index'
@@ -27,6 +28,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const QuemSomosRoute = QuemSomosRouteImport.update({
   id: '/quem-somos',
   path: '/quem-somos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FormularioInteressadosRoute = FormularioInteressadosRouteImport.update({
+  id: '/formulario-interessados',
+  path: '/formulario-interessados',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContatoRoute = ContatoRouteImport.update({
@@ -69,6 +75,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/areas-de-atuacao': typeof AreasDeAtuacaoRoute
   '/contato': typeof ContatoRoute
+  '/formulario-interessados': typeof FormularioInteressadosRoute
   '/quem-somos': typeof QuemSomosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -80,6 +87,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/areas-de-atuacao': typeof AreasDeAtuacaoRoute
   '/contato': typeof ContatoRoute
+  '/formulario-interessados': typeof FormularioInteressadosRoute
   '/quem-somos': typeof QuemSomosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -92,6 +100,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/areas-de-atuacao': typeof AreasDeAtuacaoRoute
   '/contato': typeof ContatoRoute
+  '/formulario-interessados': typeof FormularioInteressadosRoute
   '/quem-somos': typeof QuemSomosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -105,6 +114,7 @@ export interface FileRouteTypes {
     | '/'
     | '/areas-de-atuacao'
     | '/contato'
+    | '/formulario-interessados'
     | '/quem-somos'
     | '/sitemap.xml'
     | '/blog/$slug'
@@ -116,6 +126,7 @@ export interface FileRouteTypes {
     | '/'
     | '/areas-de-atuacao'
     | '/contato'
+    | '/formulario-interessados'
     | '/quem-somos'
     | '/sitemap.xml'
     | '/blog/$slug'
@@ -127,6 +138,7 @@ export interface FileRouteTypes {
     | '/'
     | '/areas-de-atuacao'
     | '/contato'
+    | '/formulario-interessados'
     | '/quem-somos'
     | '/sitemap.xml'
     | '/blog/$slug'
@@ -139,6 +151,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AreasDeAtuacaoRoute: typeof AreasDeAtuacaoRoute
   ContatoRoute: typeof ContatoRoute
+  FormularioInteressadosRoute: typeof FormularioInteressadosRoute
   QuemSomosRoute: typeof QuemSomosRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   BlogSlugRoute: typeof BlogSlugRoute
@@ -161,6 +174,13 @@ declare module '@tanstack/react-router' {
       path: '/quem-somos'
       fullPath: '/quem-somos'
       preLoaderRoute: typeof QuemSomosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/formulario-interessados': {
+      id: '/formulario-interessados'
+      path: '/formulario-interessados'
+      fullPath: '/formulario-interessados'
+      preLoaderRoute: typeof FormularioInteressadosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contato': {
@@ -219,6 +239,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AreasDeAtuacaoRoute: AreasDeAtuacaoRoute,
   ContatoRoute: ContatoRoute,
+  FormularioInteressadosRoute: FormularioInteressadosRoute,
   QuemSomosRoute: QuemSomosRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   BlogSlugRoute: BlogSlugRoute,

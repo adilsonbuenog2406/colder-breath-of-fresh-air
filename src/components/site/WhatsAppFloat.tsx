@@ -1,7 +1,14 @@
+import { useRouterState } from "@tanstack/react-router";
 import { MessageCircle } from "lucide-react";
 import { WHATSAPP_URL } from "@/lib/contact";
 
 export function WhatsAppFloat() {
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+
+  if (pathname === "/formulario-interessados") {
+    return null;
+  }
+
   return (
     <a
       href={WHATSAPP_URL}
