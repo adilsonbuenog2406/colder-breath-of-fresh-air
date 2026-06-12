@@ -1,4 +1,5 @@
 import { Logo } from "./Logo";
+import { DeveloperFooter } from "./DeveloperFooter";
 import { Phone, Mail, MapPin, Instagram } from "lucide-react";
 import { ADDRESS, PHONE_DISPLAY, EMAIL } from "@/lib/contact";
 
@@ -14,70 +15,73 @@ const NAV = [
 
 export function Footer() {
   return (
-    <footer
-      className="border-t border-border"
-      style={{ background: "var(--color-primary)", color: "white" }}
-    >
-      <div className="container-page py-14">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-          <div>
-            <Logo light />
-            <p className="mt-4 max-w-xs text-sm text-white/70">
-              Especialistas em climatização evaporativa para indústrias, empresas e ambientes
-              corporativos.
-            </p>
-          </div>
+    <>
+      <footer
+        className="border-t border-border"
+        style={{ background: "var(--color-primary)", color: "white" }}
+      >
+        <div className="container-page py-14">
+          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+            <div>
+              <Logo light />
+              <p className="mt-4 max-w-xs text-sm text-white/70">
+                Especialistas em climatização evaporativa para indústrias, empresas e ambientes
+                corporativos.
+              </p>
+            </div>
 
-          <FooterCol title="Mapa do site">
-            {NAV.map((n) => (
-              <li key={n.href}>
-                <a href={n.href} className="text-sm text-white/70 hover:text-white">
-                  {n.label}
+            <FooterCol title="Mapa do site">
+              {NAV.map((n) => (
+                <li key={n.href}>
+                  <a href={n.href} className="text-sm text-white/70 hover:text-white">
+                    {n.label}
+                  </a>
+                </li>
+              ))}
+            </FooterCol>
+
+            <FooterCol title="Contato">
+              <li className="flex items-start gap-2 text-sm text-white/70">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
+                <span>
+                  {ADDRESS.street}, {ADDRESS.neighborhood}
+                  <br />
+                  {ADDRESS.city} - {ADDRESS.state}
+                </span>
+              </li>
+              <li className="flex items-center gap-2 text-sm text-white/70">
+                <Phone className="h-4 w-4 shrink-0" /> {PHONE_DISPLAY}
+              </li>
+              <li className="flex items-start gap-2 text-sm text-white/70">
+                <Mail className="mt-0.5 h-4 w-4 shrink-0" />
+                <a href={`mailto:${EMAIL}`} className="break-all hover:text-white">
+                  {EMAIL}
                 </a>
               </li>
-            ))}
-          </FooterCol>
+            </FooterCol>
 
-          <FooterCol title="Contato">
-            <li className="flex items-start gap-2 text-sm text-white/70">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
-              <span>
-                {ADDRESS.street}, {ADDRESS.neighborhood}
-                <br />
-                {ADDRESS.city} - {ADDRESS.state}
-              </span>
-            </li>
-            <li className="flex items-center gap-2 text-sm text-white/70">
-              <Phone className="h-4 w-4 shrink-0" /> {PHONE_DISPLAY}
-            </li>
-            <li className="flex items-start gap-2 text-sm text-white/70">
-              <Mail className="mt-0.5 h-4 w-4 shrink-0" />
-              <a href={`mailto:${EMAIL}`} className="break-all hover:text-white">
-                {EMAIL}
-              </a>
-            </li>
-          </FooterCol>
+            <FooterCol title="Siga-nos">
+              <li>
+                <a
+                  href="https://www.instagram.com/colderclimatizadores/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-cyan-400"
+                >
+                  <Instagram className="h-4 w-4 shrink-0" />
+                  Instagram
+                </a>
+              </li>
+            </FooterCol>
+          </div>
 
-          <FooterCol title="Siga-nos">
-            <li>
-              <a
-                href="https://www.instagram.com/colderclimatizadores/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-cyan-400"
-              >
-                <Instagram className="h-4 w-4 shrink-0" />
-                Instagram
-              </a>
-            </li>
-          </FooterCol>
+          <div className="mt-12 border-t border-white/10 pt-6 text-center text-xs text-white/60">
+            Copyright © {new Date().getFullYear()} Colder. Todos os direitos reservados.
+          </div>
         </div>
-
-        <div className="mt-12 border-t border-white/10 pt-6 text-center text-xs text-white/60">
-          Copyright © {new Date().getFullYear()} Colder. Todos os direitos reservados.
-        </div>
-      </div>
-    </footer>
+      </footer>
+      <DeveloperFooter />
+    </>
   );
 }
 

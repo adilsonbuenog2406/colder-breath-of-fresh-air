@@ -214,3 +214,32 @@
     transform: translateX(-50%);
   }
 }
+
+/* ── Developer footer logo shine ──────────────────────────────── */
+@keyframes developer-logo-shine {
+  0% {
+    transform: translateX(-130%) skewX(-10deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.35;
+  }
+  80% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateX(230%) skewX(-10deg);
+    opacity: 0;
+  }
+}
+
+@utility developer-logo-shine-bar {
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 35%,
+    rgba(255, 255, 255, 0.22) 50%,
+    rgba(255, 255, 255, 0.08) 65%,
+    transparent 100%
+  );
+}
