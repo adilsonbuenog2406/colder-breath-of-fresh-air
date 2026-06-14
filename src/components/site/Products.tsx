@@ -1,34 +1,21 @@
-import wall from "@/assets/product-wall.jpg";
-import industrial from "@/assets/product-industrial.jpg";
-import portable from "@/assets/product-portable.jpg";
-import water from "@/assets/product-water.jpg";
 import { ArrowRight } from "lucide-react";
 import { WHATSAPP_URL } from "@/lib/contact";
 
 const PRODUCTS = [
   {
-    img: wall,
-    alt: "Climatizador industrial de parede evaporativo",
-    title: "Climatizador industrial de parede",
-    desc: "Modelo evaporativo de parede, ideal para galpões e linhas de produção que exigem fluxo de ar contínuo.",
+    img: encodeURI("/climatizadorevaporativoindustrial.jpeg"),
+    title: "Climatizador evaporativo industrial",
+    desc: "Equipamento de alta vazão para galpões, indústrias e grandes áreas que exigem climatização eficiente.",
   },
   {
-    img: industrial,
-    alt: "Climatizador industrial de grande porte",
-    title: "Climatizador para atacado",
-    desc: "Equipamentos de alta vazão para grandes áreas comerciais, distribuidoras e centros logísticos.",
+    img: encodeURI("/climatizador evaporativo industrial móvel.png"),
+    title: "Climatizador evaporativo industrial móvel",
+    desc: "Modelo móvel para flexibilidade de posicionamento em linhas de produção e ambientes industriais variados.",
   },
   {
-    img: portable,
-    alt: "Climatizador portátil comercial",
-    title: "Comprar climatizador",
-    desc: "Modelos comerciais com instalação simples para escritórios, lojas e ambientes corporativos.",
-  },
-  {
-    img: water,
-    alt: "Climatizador de ambiente com reservatório de água",
-    title: "Climatizador de ambiente com água",
-    desc: "Sistema evaporativo com reservatório de água que umidifica e refresca o ambiente com baixo consumo.",
+    img: encodeURI("/climatizadorevaporativoportatil.jpg"),
+    title: "Climatizador evaporativo portátil",
+    desc: "Solução compacta e prática para escritórios, lojas e ambientes comerciais com instalação simples.",
   },
 ];
 
@@ -47,16 +34,16 @@ export function Products() {
           </div>
         </div>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {PRODUCTS.map((p) => (
             <article
               key={p.title}
-              className="card-soft card-soft-hover overflow-hidden flex flex-col"
+              className="card-soft card-soft-hover flex flex-col overflow-hidden"
             >
               <div className="aspect-square overflow-hidden bg-white">
                 <img
                   src={p.img}
-                  alt={p.alt}
+                  alt={p.title}
                   width={1024}
                   height={1024}
                   loading="lazy"

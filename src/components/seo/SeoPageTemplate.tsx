@@ -8,7 +8,6 @@ import { CheckCircle2, MessageCircle } from "lucide-react";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { CTASection } from "@/components/seo/CTASection";
 import { FAQSection } from "@/components/seo/FAQSection";
-import { InternalLinksSection } from "@/components/seo/InternalLinksSection";
 import { Footer } from "@/components/site/Footer";
 import { Header } from "@/components/site/Header";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
@@ -105,7 +104,6 @@ export function SeoPageTemplate({ page }: { page: SeoPage }) {
           </div>
         </section>
 
-        <InternalLinksSection links={page.relatedLinks} />
         <FAQSection faq={page.faq} />
         <CTASection
           title={`Solicite um projeto para ${page.h1.toLowerCase()}`}

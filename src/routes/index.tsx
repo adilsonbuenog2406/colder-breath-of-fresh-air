@@ -12,7 +12,6 @@ import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { FAQSection } from "@/components/seo/FAQSection";
-import { InternalLinksSection } from "@/components/seo/InternalLinksSection";
 import { buildSeoHead, breadcrumbSchema, faqSchema } from "@/components/seo/seo-head";
 import { ORGANIZATION_SCHEMA } from "@/data/site";
 
@@ -38,17 +37,6 @@ const HOME_FAQ = [
   },
 ];
 
-const HOME_LINKS = [
-  { href: "/solucoes/climatizadores-industriais", label: "Climatizadores industriais" },
-  { href: "/solucoes/climatizadores-evaporativos", label: "Climatizadores evaporativos" },
-  { href: "/solucoes/climatizacao-para-empresas", label: "Climatização para empresas" },
-  { href: "/segmentos/climatizadores-para-igrejas", label: "Climatizadores para igrejas" },
-  { href: "/segmentos/climatizacao-para-clinicas", label: "Climatização para clínicas" },
-  { href: "/segmentos/climatizadores-para-galpoes", label: "Climatizadores para galpões" },
-  { href: "/cidades/climatizadores-industriais-em-maringa", label: "Climatizadores em Maringá" },
-  { href: "/cidades/climatizadores-industriais-no-parana", label: "Climatizadores no Paraná" },
-];
-
 export const Route = createFileRoute("/")({
   head: () =>
     buildSeoHead({
@@ -71,13 +59,12 @@ function Index() {
       <main>
         <Hero />
         <Clients />
+        <Products />
         <Benefits />
         <About />
         <Differentials />
         <Areas />
         <CommercialCTA />
-        <Products />
-        <InternalLinksSection links={HOME_LINKS} />
         <FAQSection faq={HOME_FAQ} />
         <Contact />
       </main>
