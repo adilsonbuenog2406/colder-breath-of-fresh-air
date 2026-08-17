@@ -25,7 +25,7 @@ const PRODUCTS: Product[] = [
   {
     img: climatizadorC23Img,
     title: "Climatizador Colder C-23",
-    desc: "Vazão de 23.000 m³/h, potência de 1.500 W e alcance de até 200 m² com economia de até 90% de energia.",
+    desc: "Vazão de 23.000 m³/h, potência de 1.500 W e alcance de até 200 m² para ambientes empresariais.",
     alt: "Climatizador Colder C-23",
   },
   {
@@ -72,8 +72,8 @@ export function Products() {
               Produtos em destaque <br />
               Conheça as máquinas Colder <br />
               Nossos equipamentos fazem parte de um projeto desenvolvido para atender as
-              necessidades reais de cada ambiente, garantindo eficiência, economia e desempenho
-              no longo prazo.
+              necessidades reais de cada ambiente, garantindo eficiência, economia e desempenho no
+              longo prazo.
             </p>
           </div>
         </div>

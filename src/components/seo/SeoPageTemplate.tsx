@@ -8,6 +8,7 @@ import { CheckCircle2, MessageCircle } from "lucide-react";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { CTASection } from "@/components/seo/CTASection";
 import { FAQSection } from "@/components/seo/FAQSection";
+import { InternalLinksSection } from "@/components/seo/InternalLinksSection";
 import { Footer } from "@/components/site/Footer";
 import { Header } from "@/components/site/Header";
 import { Areas } from "@/components/site/Areas";
@@ -92,8 +93,8 @@ export function SeoPageTemplate({ page }: { page: SeoPage }) {
             <aside className="h-fit rounded-lg border border-border bg-surface p-6">
               <h2 className="text-lg font-bold">Orçamento rápido</h2>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                Envie cidade, tipo de ambiente, metragem aproximada e fotos do local para a equipe
-                da Colder avaliar o melhor caminho.
+                Envie cidade, tipo de ambiente, metragem aproximada, pé-direito e fotos do local
+                para a equipe da Colder avaliar o melhor caminho.
               </p>
               <a
                 href={WHATSAPP_URL}
@@ -104,21 +105,12 @@ export function SeoPageTemplate({ page }: { page: SeoPage }) {
                 <MessageCircle className="h-4 w-4" />
                 {page.ctaText}
               </a>
-              <div className="mt-6 border-t border-border pt-5">
-                <h3 className="text-sm font-semibold">Palavras relacionadas</h3>
-                <ul className="mt-3 space-y-2">
-                  {page.secondaryKeywords.map((keyword) => (
-                    <li key={keyword} className="text-sm text-muted-foreground">
-                      {keyword}
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </aside>
           </div>
         </section>
 
         <FAQSection faq={page.faq} />
+        {page.relatedLinks.length > 0 && <InternalLinksSection links={page.relatedLinks} />}
         <CTASection
           title={`Solicite um projeto para ${page.h1.toLowerCase()}`}
           text="A Colder dimensiona climatizadores conforme o ambiente, a rotina de uso e a expectativa de conforto térmico da sua empresa."
@@ -141,7 +133,7 @@ export function BlogArticleTemplate({ page }: { page: BlogPage }) {
           imageAlt={page.imageAlt}
           breadcrumbs={[
             { href: "/", label: "Home" },
-            { href: "/blog/climatizador-industrial-ou-ar-condicionado", label: "Blog" },
+            { href: "/blog", label: "Blog" },
             { href: page.path, label: page.h1 },
           ]}
         />
@@ -149,6 +141,17 @@ export function BlogArticleTemplate({ page }: { page: BlogPage }) {
         <article className="section-pad">
           <div className="container-page grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
             <div className="max-w-3xl space-y-10">
+              <p className="text-sm text-muted-foreground">
+                Publicado em{" "}
+                <time dateTime={page.datePublished}>
+                  {new Date(page.datePublished).toLocaleDateString("pt-BR")}
+                </time>
+                {" · "}
+                Atualizado em{" "}
+                <time dateTime={page.dateModified}>
+                  {new Date(page.dateModified).toLocaleDateString("pt-BR")}
+                </time>
+              </p>
               {page.sections.map((section) => (
                 <section key={section.heading}>
                   <h2 className="text-2xl font-bold sm:text-3xl">{section.heading}</h2>
@@ -157,7 +160,7 @@ export function BlogArticleTemplate({ page }: { page: BlogPage }) {
                     <ul className="mt-5 space-y-2">
                       {section.items.map((item) => (
                         <li key={item} className="text-muted-foreground">
-                          {item}
+                          • {item}
                         </li>
                       ))}
                     </ul>
@@ -179,9 +182,10 @@ export function BlogArticleTemplate({ page }: { page: BlogPage }) {
         </article>
 
         <FAQSection faq={page.faq} />
+        {page.relatedLinks.length > 0 && <InternalLinksSection links={page.relatedLinks} />}
         <CTASection
           title="Precisa de uma avaliação para sua empresa?"
-          text="Fale com a Colder para entender qual solução se encaixa melhor no seu ambiente."
+          text="Fale com a Colder para entender qual solução se encaixa melhor no seu ambiente. Informe cidade, metragem, pé-direito e fotos."
           buttonLabel="Solicitar orçamento"
         />
       </main>

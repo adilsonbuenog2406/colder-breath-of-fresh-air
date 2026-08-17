@@ -1,4 +1,4 @@
-import { ORGANIZATION_SCHEMA, SITE_NAME, SITE_URL } from "@/data/site";
+import { ORGANIZATION_SCHEMA, SITE_NAME, SITE_URL, DEFAULT_OG_IMAGE } from "@/data/site";
 import { canonicalUrl, type BlogPage, type SeoPage } from "@/data/seo-pages";
 
 const ORGANIZATION_ID = `${SITE_URL}/#organization`;
@@ -8,27 +8,34 @@ interface HeadInput {
   description: string;
   path: string;
   jsonLd?: unknown[];
+  robots?: string;
 }
 
-export function buildSeoHead({ title, description, path, jsonLd = [] }: HeadInput) {
+export function buildSeoHead({
+  title,
+  description,
+  path,
+  jsonLd = [],
+  robots = "index,follow",
+}: HeadInput) {
   const url = canonicalUrl(path);
 
   return {
     meta: [
       { title },
       { name: "description", content: description },
-      { name: "robots", content: "index,follow" },
+      { name: "robots", content: robots },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_BR" },
       { property: "og:site_name", content: SITE_NAME },
       { property: "og:url", content: url },
-      { property: "og:image", content: `${canonicalUrl("/og-colder-climatizadores.jpg")}` },
+      { property: "og:image", content: DEFAULT_OG_IMAGE },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
-      { name: "twitter:image", content: `${canonicalUrl("/og-colder-climatizadores.jpg")}` },
+      { name: "twitter:image", content: DEFAULT_OG_IMAGE },
     ],
     links: [{ rel: "canonical", href: url }],
     scripts: jsonLd.map((schema) => ({
@@ -93,9 +100,18 @@ export function blogPostingSchema(page: BlogPage) {
     "@type": "BlogPosting",
     headline: page.h1,
     description: page.metaDescription,
-    mainEntityOfPage: canonicalUrl(page.path),
+    image: page.imageUrl ?? DEFAULT_OG_IMAGE,
+    datePublished: page.datePublished,
+    dateModified: page.dateModified ?? page.datePublished,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": canonicalUrl(page.path),
+    },
+    url: canonicalUrl(page.path),
     author: {
+      "@type": "Organization",
       "@id": ORGANIZATION_ID,
+      name: SITE_NAME,
     },
     publisher: {
       "@id": ORGANIZATION_ID,
@@ -132,7 +148,7 @@ export function schemasForBlogPage(page: BlogPage) {
     faqSchema(page.faq),
     breadcrumbSchema([
       { name: "Home", path: "/" },
-      { name: "Blog", path: "/blog/climatizador-industrial-ou-ar-condicionado" },
+      { name: "Blog", path: "/blog" },
       { name: page.h1, path: page.path },
     ]),
   ];

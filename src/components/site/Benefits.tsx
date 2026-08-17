@@ -23,12 +23,12 @@ const ITEMS: BenefitItem[] = [
   {
     icon: Zap,
     title: "Economia de energia",
-    text: "Até 90% de economia de energia elétrica em comparação ao ar-condicionado comum, reduzindo custos operacionais sem abrir mão do conforto.",
+    text: "Em ambientes amplos, o sistema evaporativo tende a consumir menos energia que o ar-condicionado convencional, porque não usa compressor. O ganho real depende do projeto e das condições do local.",
   },
   {
     icon: ThermometerSnowflake,
     title: "Redução de temperatura",
-    text: "Redução de até 16°C da temperatura em relação ao ambiente externo, considerando as condições de umidade relativa do ar.",
+    text: "A sensação térmica melhora conforme umidade relativa, ventilação, carga térmica e dimensionamento. O resultado varia por ambiente e precisa de avaliação técnica.",
   },
   {
     icon: Droplets,

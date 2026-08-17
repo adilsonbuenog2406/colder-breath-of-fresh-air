@@ -11,12 +11,10 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { MetaPixelRouteTracker } from "../components/analytics/MetaPixel";
+import { GoogleAdsContactTracker } from "../components/analytics/GoogleAdsContactTracker";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { META_PIXEL_DEFERRED_BOOTSTRAP, META_PIXEL_ID } from "../lib/meta-pixel";
-import {
-  GOOGLE_ANALYTICS_BOOTSTRAP,
-  GOOGLE_ANALYTICS_SCRIPT_SRC,
-} from "../lib/google-analytics";
+import { GOOGLE_ANALYTICS_BOOTSTRAP, GOOGLE_ANALYTICS_SCRIPT_SRC } from "../lib/google-analytics";
 
 const GOOGLE_FONTS_URL =
   "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap";
@@ -97,11 +95,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       meta: [
         { charSet: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
-        { title: "Colder Climatizadores | Climatização Industrial em Maringá" },
+        { title: "Colder Climatizadores | Climatização Industrial e Empresarial" },
         {
           name: "description",
           content:
-            "Especialistas em climatizadores evaporativos para indústrias, empresas e ambientes corporativos.",
+            "A Colder oferece soluções de climatização industrial e empresarial para indústrias, galpões, igrejas, clínicas e empresas. Solicite um orçamento.",
         },
       ],
       links,
@@ -156,6 +154,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <MetaPixelRouteTracker />
+      <GoogleAdsContactTracker />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>

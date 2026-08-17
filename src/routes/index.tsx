@@ -9,8 +9,6 @@ import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { buildSeoHead, breadcrumbSchema, faqSchema } from "@/components/seo/seo-head";
 import { ORGANIZATION_SCHEMA } from "@/data/site";
 
-const HERO_VIDEO_URL = "/video-04.mp4";
-
 const Clients = lazy(() =>
   import("@/components/site/Clients").then((m) => ({ default: m.Clients })),
 );
@@ -41,6 +39,9 @@ const FAQSection = lazy(() =>
 const Contact = lazy(() =>
   import("@/components/site/Contact").then((m) => ({ default: m.Contact })),
 );
+const PriorityLinks = lazy(() =>
+  import("@/components/site/PriorityLinks").then((m) => ({ default: m.PriorityLinks })),
+);
 
 const TITLE = "Colder Climatizadores | Climatização Industrial e Empresarial";
 const DESCRIPTION =
@@ -60,7 +61,7 @@ const HOME_FAQ = [
   {
     question: "Como solicitar um orçamento?",
     answer:
-      "Entre em contato pelo WhatsApp ou pela página de contato e informe cidade, tipo de ambiente, metragem aproximada e fotos do local.",
+      "Entre em contato pelo WhatsApp ou pela página de contato e informe cidade, tipo de ambiente, metragem aproximada, pé-direito e fotos do local.",
   },
 ];
 
@@ -81,19 +82,7 @@ export const Route = createFileRoute("/")({
       ],
     });
 
-    return {
-      ...seo,
-      links: [
-        ...(seo.links ?? []),
-        {
-          rel: "preload",
-          as: "video",
-          href: HERO_VIDEO_URL,
-          type: "video/mp4",
-          fetchPriority: "high",
-        },
-      ],
-    };
+    return seo;
   },
   component: Index,
 });
@@ -106,6 +95,9 @@ function Index() {
         <Hero />
         <WhyColder />
         <AutomationBanner />
+        <Suspense fallback={<SectionFallback />}>
+          <PriorityLinks />
+        </Suspense>
         <Suspense fallback={<SectionFallback />}>
           <Clients />
         </Suspense>
@@ -129,6 +121,9 @@ function Index() {
         </Suspense>
         <Suspense fallback={<SectionFallback />}>
           <CommercialCTA />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <FAQSection faq={HOME_FAQ} />
         </Suspense>
         <Suspense fallback={<SectionFallback />}>
           <Contact />

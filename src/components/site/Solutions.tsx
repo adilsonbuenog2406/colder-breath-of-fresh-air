@@ -8,12 +8,7 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { solutions, type Solution } from "@/data/solutions";
 
 interface SolutionCardProps {
@@ -22,7 +17,7 @@ interface SolutionCardProps {
 }
 
 function SolutionCard({ solution, onImageClick }: SolutionCardProps) {
-  const { title, description, image, alt } = solution;
+  const { title, description, image, alt, href } = solution;
 
   return (
     <article className="card-soft card-soft-hover flex h-full flex-col overflow-hidden">
@@ -48,10 +43,20 @@ function SolutionCard({ solution, onImageClick }: SolutionCardProps) {
         </span>
       </button>
       <div className="flex flex-1 flex-col p-5 sm:p-6">
-        <h3 className="text-lg font-semibold leading-snug sm:text-xl">{title}</h3>
+        <h3 className="text-lg font-semibold leading-snug sm:text-xl">
+          <a href={href} className="hover:text-brand">
+            {title}
+          </a>
+        </h3>
         <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground sm:text-[0.9375rem]">
           {description}
         </p>
+        <a
+          href={href}
+          className="mt-4 text-sm font-semibold text-brand underline-offset-2 hover:underline"
+        >
+          Ver solução
+        </a>
       </div>
     </article>
   );
@@ -113,10 +118,7 @@ export function Solutions() {
       <div className="container-page">
         <div className="mx-auto max-w-3xl text-center">
           <span className="eyebrow">Conheça nossas soluções</span>
-          <h2
-            id="solutions-heading"
-            className="mt-3 text-balance text-3xl font-bold sm:text-4xl"
-          >
+          <h2 id="solutions-heading" className="mt-3 text-balance text-3xl font-bold sm:text-4xl">
             Soluções de climatização para cada ambiente
           </h2>
           <p className="mt-4 text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -163,10 +165,7 @@ export function Solutions() {
         </div>
       </div>
 
-      <SolutionLightbox
-        solution={selectedSolution}
-        onClose={() => setSelectedSolution(null)}
-      />
+      <SolutionLightbox solution={selectedSolution} onClose={() => setSelectedSolution(null)} />
     </section>
   );
 }

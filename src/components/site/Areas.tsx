@@ -1,12 +1,18 @@
-import { Factory, Building2, Warehouse, Store, Briefcase, Home } from "lucide-react";
+import { Factory, Building2, Warehouse, Store, Church, ShoppingCart } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import type { LucideIcon } from "lucide-react";
 
-const ITEMS = [
-  { icon: Factory, label: "Indústrias" },
-  { icon: Building2, label: "Empresas" },
-  { icon: Warehouse, label: "Galpões" },
-  { icon: Store, label: "Comércios" },
-  { icon: Briefcase, label: "Ambientes corporativos" },
-  { icon: Home, label: "Residenciais amplos" },
+const ITEMS: Array<{ icon: LucideIcon; label: string; href: string }> = [
+  { icon: Factory, label: "Indústrias", href: "/segmentos/climatizadores-para-industrias" },
+  { icon: Building2, label: "Empresas", href: "/solucoes/climatizacao-para-empresas" },
+  { icon: Warehouse, label: "Galpões", href: "/segmentos/climatizadores-para-galpoes" },
+  { icon: Church, label: "Igrejas", href: "/segmentos/climatizadores-para-igrejas" },
+  {
+    icon: ShoppingCart,
+    label: "Supermercados",
+    href: "/segmentos/climatizadores-para-supermercados",
+  },
+  { icon: Store, label: "Comércios", href: "/areas-de-atuacao" },
 ];
 
 export function Areas() {
@@ -25,9 +31,10 @@ export function Areas() {
         </div>
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-          {ITEMS.map(({ icon: Icon, label }) => (
-            <div
+          {ITEMS.map(({ icon: Icon, label, href }) => (
+            <Link
               key={label}
+              to={href}
               className="card-soft card-soft-hover flex flex-col items-center gap-3 p-5 text-center"
             >
               <div
@@ -37,7 +44,7 @@ export function Areas() {
                 <Icon className="h-6 w-6" style={{ color: "var(--color-brand-foreground)" }} />
               </div>
               <span className="text-sm font-medium">{label}</span>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

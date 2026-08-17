@@ -11,11 +11,15 @@ export default defineConfig({
     preset: "heroku",
     compressPublicAssets: { gzip: true, brotli: true },
     routeRules: {
-      "/**": {
+      "/health": {
         headers: {
-          "cache-control": "no-cache, no-store, must-revalidate",
-          pragma: "no-cache",
-          expires: "0",
+          "cache-control": "no-store",
+          "cdn-cache-control": "no-store",
+        },
+      },
+      "/meta.json": {
+        headers: {
+          "cache-control": "no-store",
           "cdn-cache-control": "no-store",
         },
       },
@@ -29,9 +33,6 @@ export default defineConfig({
         headers: { "cache-control": "public, max-age=604800" },
       },
       "/**/*.png": {
-        headers: { "cache-control": "public, max-age=604800" },
-      },
-      "/**/*.webp": {
         headers: { "cache-control": "public, max-age=604800" },
       },
       "/**/*.webp": {

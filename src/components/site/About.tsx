@@ -12,16 +12,15 @@ export function About() {
           <p className="mt-5 text-muted-foreground leading-relaxed">
             COLDER CLIMATIZADORES: EFICIÊNCIA EM CLIMATIZAÇÃO <br />
             <br />
-            Desenvolvemos soluções de climatização inteligente para grandes ambientes
-            comerciais e industriais. Cada projeto é planejado a partir da análise técnica do
-            espaço, considerando operação, circulação de pessoas e necessidades
-            específicas de cada ambiente.
+            Desenvolvemos soluções de climatização inteligente para grandes ambientes comerciais e
+            industriais. Cada projeto é planejado a partir da análise técnica do espaço,
+            considerando operação, circulação de pessoas e necessidades específicas de cada
+            ambiente.
           </p>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            Acompanhamos nossos clientes em todas as etapas do processo: do
-            diagnóstico à instalação. Contamos com equipe própria especializada, suporte
-            contínuo, pós-venda e manutenção para garantir eficiência, conforto e
-            desempenho no longo prazo.
+            Acompanhamos nossos clientes em todas as etapas do processo: do diagnóstico à
+            instalação. Contamos com equipe própria especializada, suporte contínuo, pós-venda e
+            manutenção para garantir eficiência, conforto e desempenho no longo prazo.
           </p>
           <a href="#contato" className="btn-primary mt-7">
             Saiba mais <ArrowRight className="h-4 w-4" />
@@ -48,10 +47,14 @@ export function About() {
             </ul>
 
             <div className="mt-8 grid grid-cols-3 gap-4 border-t border-border pt-6">
-              <Stat value="90%" label="Economia de energia" />
-              <Stat value="Até 16°C" label="Redução térmica" />
-              <Stat value="100%" label="Renovação do ar" />
+              <Stat value="Menor" label="Consumo vs AC tradicional*" />
+              <Stat value="Variável" label="Redução térmica*" />
+              <Stat value="Contínua" label="Renovação do ar" />
             </div>
+            <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+              *O desempenho depende de umidade, ventilação, carga térmica e dimensionamento. A
+              Colder avalia cada ambiente antes de indicar equipamentos.
+            </p>
           </div>
         </div>
       </div>

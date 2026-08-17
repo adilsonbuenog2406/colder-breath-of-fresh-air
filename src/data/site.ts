@@ -1,4 +1,4 @@
-import { ADDRESS, EMAIL, PHONE_DISPLAY, PHONE_E164 } from "@/lib/contact";
+import { ADDRESS, EMAIL, PHONE_E164 } from "@/lib/contact";
 
 export const SITE_URL = "https://colderclimatizadores.com.br";
 export const SITE_NAME = "Colder Climatizadores";
@@ -10,8 +10,11 @@ export const ORGANIZATION_SCHEMA = {
   "@id": `${SITE_URL}/#organization`,
   name: SITE_NAME,
   url: SITE_URL,
+  logo: `${SITE_URL}/bueno-maestri-logo.webp`,
+  image: DEFAULT_OG_IMAGE,
   telephone: `+${PHONE_E164}`,
   email: EMAIL,
+  sameAs: ["https://www.instagram.com/colderclimatizadores/"],
   address: {
     "@type": "PostalAddress",
     streetAddress: ADDRESS.street,
@@ -28,7 +31,7 @@ export const ORGANIZATION_SCHEMA = {
   ],
   contactPoint: {
     "@type": "ContactPoint",
-    telephone: PHONE_DISPLAY,
+    telephone: `+${PHONE_E164}`,
     contactType: "sales",
     areaServed: "BR",
     availableLanguage: "pt-BR",

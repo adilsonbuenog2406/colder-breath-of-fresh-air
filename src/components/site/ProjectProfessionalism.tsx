@@ -1,4 +1,4 @@
-import profissionalismoImg from "@/assets/profissionalismo.colder.png";
+import profissionalismoImg from "@/assets/profissionalismo.colder.webp";
 
 export function ProjectProfessionalism() {
   return (
@@ -6,7 +6,7 @@ export function ProjectProfessionalism() {
       <div className="container-page grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-12">
         <div className="max-w-xl">
           <h2 className="text-3xl font-bold leading-tight sm:text-4xl">
-            Do projeto á instalação com profissionalismo máximo
+            Do projeto à instalação com profissionalismo máximo
           </h2>
         </div>
 

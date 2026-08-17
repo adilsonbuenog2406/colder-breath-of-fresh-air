@@ -1,24 +1,52 @@
+import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
+import heroPoster from "@/assets/hero-industrial.webp";
 
 const HERO_VIDEO_URL = "/video-04.mp4";
 
 export function Hero() {
+  const [allowVideo, setAllowVideo] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    setAllowVideo(!media.matches && !isMobile);
+
+    const onChange = () => {
+      setAllowVideo(!media.matches && !window.matchMedia("(max-width: 767px)").matches);
+    };
+    media.addEventListener("change", onChange);
+    return () => media.removeEventListener("change", onChange);
+  }, []);
+
   return (
     <section
       id="top"
       className="relative flex min-h-[min(660px,82svh)] items-start overflow-hidden bg-primary md:min-h-[88vh] md:items-center"
     >
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        aria-hidden="true"
+      <img
+        src={heroPoster}
+        alt=""
+        width={1920}
+        height={1080}
+        fetchPriority="high"
+        decoding="async"
         className="absolute inset-0 h-full w-full object-cover object-[58%_center] md:object-center"
-      >
-        <source src={HERO_VIDEO_URL} type="video/mp4" />
-      </video>
+      />
+      {allowVideo && (
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="none"
+          poster={heroPoster}
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover object-[58%_center] md:object-center"
+        >
+          <source src={HERO_VIDEO_URL} type="video/mp4" />
+        </video>
+      )}
       <div
         className="absolute inset-0"
         style={{
@@ -34,9 +62,8 @@ export function Hero() {
           <span>Climatizadores</span> <span className="block md:inline">Inteligentes</span>
         </h1>
         <p className="mx-auto mt-4 max-w-[320px] text-pretty text-lg leading-relaxed text-white/86 md:mt-5 md:max-w-2xl md:text-xl">
-        Projetos para grandes ambientes, com análise técnica, equipe própria especializada e
-        acompanhamento contínuo para garantir eficiência, conforto e economia.
-
+          Projetos para grandes ambientes, com análise técnica, equipe própria especializada e
+          acompanhamento contínuo para garantir eficiência, conforto e economia.
         </p>
         <div className="mt-7 flex flex-col items-center justify-center gap-2.5 md:mt-9 md:flex-row md:flex-wrap md:gap-3">
           <a

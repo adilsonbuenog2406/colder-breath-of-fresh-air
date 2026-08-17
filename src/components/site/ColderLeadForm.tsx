@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { saveLeadInteressado } from "@/lib/api/lead-interessados.functions";
+import { trackGoogleAdsLead } from "@/lib/google-analytics";
 import { trackLeadFormConversion } from "@/lib/meta-pixel";
 
 const LEAD_SESSION_KEY = "colder_lead_session_id";
@@ -141,6 +142,7 @@ export function ColderLeadForm() {
     }
 
     trackLeadFormConversion();
+    trackGoogleAdsLead("Formulário de Interessados");
 
     const message = buildWhatsAppMessage(payload);
     window.location.href = `${WHATSAPP_BASE_URL}?text=${encodeURIComponent(message)}`;
@@ -150,7 +152,8 @@ export function ColderLeadForm() {
     <section
       className="px-4 pb-10 pt-[4.25rem] lg:section-pad lg:px-0 lg:pb-16 lg:pt-28"
       style={{
-        background: "linear-gradient(180deg, white 0%, color-mix(in oklch, var(--color-primary) 6%, white) 100%)",
+        background:
+          "linear-gradient(180deg, white 0%, color-mix(in oklch, var(--color-primary) 6%, white) 100%)",
       }}
     >
       <div className="container-page">

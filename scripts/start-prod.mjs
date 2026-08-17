@@ -4,8 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DEBUG_LOG =
-  process.env.DEBUG_LOG_PATH ??
-  resolve(__dirname, "../../.cursor/debug-6c2070.log");
+  process.env.DEBUG_LOG_PATH ?? resolve(__dirname, "../../.cursor/debug-6c2070.log");
 
 function agentLog(payload) {
   const line = JSON.stringify({
@@ -90,7 +89,8 @@ const probePort = Number.parseInt(process.env.PORT ?? "3000", 10);
 for (const probePath of ["/health", "/meta.json", "/video-04.mp4", "/"]) {
   try {
     const res = await fetch(`http://127.0.0.1:${probePort}${probePath}`);
-    const body = probePath === "/health" ? await res.text() : `(html ${(await res.text()).length}b)`;
+    const body =
+      probePath === "/health" ? await res.text() : `(html ${(await res.text()).length}b)`;
     // #region agent log
     agentLog({
       runId: process.env.DEBUG_RUN_ID ?? "pre-fix",

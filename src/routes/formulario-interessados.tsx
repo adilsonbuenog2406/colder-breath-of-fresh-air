@@ -17,6 +17,7 @@ export const Route = createFileRoute("/formulario-interessados")({
       title: TITLE,
       description: DESCRIPTION,
       path: "/formulario-interessados",
+      robots: "noindex,follow",
       jsonLd: [
         ORGANIZATION_SCHEMA,
         breadcrumbSchema([

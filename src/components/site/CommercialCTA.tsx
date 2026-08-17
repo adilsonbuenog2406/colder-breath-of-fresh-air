@@ -2,8 +2,8 @@ import { Check, ArrowRight } from "lucide-react";
 import { WHATSAPP_URL } from "@/lib/contact";
 
 const BENEFITS = [
-  "Reduz a temperatura ambiente em até 16°C",
-  "Economiza até 90% de energia",
+  "Melhora o conforto térmico em ambientes amplos",
+  "Tendência a menor consumo que AC convencional",
   "Muito mais silencioso",
   "Purifica e umidifica o ar",
 ];

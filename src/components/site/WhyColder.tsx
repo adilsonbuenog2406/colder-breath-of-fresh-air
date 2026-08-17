@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import seloGarantia from "@/assets/selo.fundo.png";
+import seloGarantia from "@/assets/selo.fundo.webp";
 
 const REASONS = [
   "Equipe própria",
@@ -18,7 +18,7 @@ export function WhyColder() {
           id="why-colder-heading"
           className="text-center text-3xl font-extrabold sm:text-4xl lg:text-[2.75rem]"
         >
-          Porque a Colder?
+          Por que a Colder?
         </h2>
 
         <div className="mx-auto mt-10 flex max-w-5xl flex-col items-center gap-10 sm:mt-12 md:flex-row md:items-center md:justify-between md:gap-12 lg:max-w-6xl lg:gap-16">
@@ -38,7 +38,7 @@ export function WhyColder() {
           <div className="flex shrink-0 flex-col items-center text-center md:max-w-[16rem] lg:max-w-[18rem]">
             <img
               src={seloGarantia}
-              alt="Selo de 2 anos de garantia"
+              alt="Selo de 3 anos de garantia"
               width={280}
               height={280}
               loading="lazy"

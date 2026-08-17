@@ -1,7 +1,7 @@
 import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
-import { htmlResponse, withHtmlNoCache } from "./lib/html-cache-headers";
+import { htmlResponse, withHtmlPublicCache } from "./lib/html-cache-headers";
 import { renderErrorPage } from "./lib/error-page";
 
 type ServerEntry = {
@@ -72,6 +72,13 @@ export default {
 
     requestCount += 1;
 
+    if (path === "/climatizadores-industrias" || path === "/climatizadores-industrias/") {
+      return Response.redirect(
+        new URL("/segmentos/climatizadores-para-industrias", request.url),
+        301,
+      );
+    }
+
     if (LEGACY_HERO_VIDEO.test(path)) {
       // #region agent log
       agentLog({
@@ -88,9 +95,7 @@ export default {
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
-      const finalResponse = withHtmlNoCache(
-        await normalizeCatastrophicSsrResponse(response),
-      );
+      const finalResponse = withHtmlPublicCache(await normalizeCatastrophicSsrResponse(response));
 
       if (shouldLog) {
         // #region agent log

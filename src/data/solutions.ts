@@ -10,6 +10,7 @@ export interface Solution {
   description: string;
   image: string;
   alt?: string;
+  href: string;
 }
 
 export const solutions: Solution[] = [
@@ -20,6 +21,7 @@ export const solutions: Solution[] = [
       "Soluções de alta vazão para galpões, barracões e espaços amplos que exigem redução de temperatura, qualidade do ar e eficiência operacional.",
     image: climatizacaoGrandesAmbientesImg,
     alt: "Climatização evaporativa para grandes ambientes",
+    href: "/solucoes/climatizadores-industriais",
   },
   {
     id: "climatizacao-galpoes-logisticos",
@@ -28,6 +30,7 @@ export const solutions: Solution[] = [
       "Ambientes logísticos mais frescos e ventilados para operações de armazenagem e distribuição, com climatização eficiente em áreas de grande volume.",
     image: climatizacaoGalpoesLogisticosImg,
     alt: "Climatização evaporativa para galpões logísticos",
+    href: "/segmentos/climatizadores-para-galpoes",
   },
   {
     id: "climatizacao-instituicoes-religiosas",
@@ -36,6 +39,7 @@ export const solutions: Solution[] = [
       "Templos, igrejas e salões de eventos mais confortáveis para fiéis e visitantes, com renovação do ar e climatização eficiente em grandes áreas.",
     image: climatizacaoInstituicoesReligiosasImg,
     alt: "Climatização evaporativa para instituições religiosas",
+    href: "/segmentos/climatizadores-para-igrejas",
   },
   {
     id: "climatizacao-supermercado",
@@ -44,6 +48,7 @@ export const solutions: Solution[] = [
       "Conforto térmico para corredores, áreas de vendas e estoque, com renovação do ar e economia de energia em ambientes de grande circulação.",
     image: climatizacaoSupermercadoImg,
     alt: "Climatização evaporativa para supermercados",
+    href: "/segmentos/climatizadores-para-supermercados",
   },
   {
     id: "climatizacao-industria",
@@ -52,5 +57,6 @@ export const solutions: Solution[] = [
       "Ambientes industriais mais confortáveis, produtivos e seguros com climatização eficiente e renovação constante do ar.",
     image: climatizacaoIndustriaImg,
     alt: "Climatização evaporativa para ambientes industriais",
+    href: "/segmentos/climatizadores-para-industrias",
   },
 ];

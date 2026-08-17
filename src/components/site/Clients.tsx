@@ -90,9 +90,8 @@ export function Clients() {
           Empresas que confiam na Colder
         </h2>
         <p className="mx-auto mt-4 max-w-[17.5rem] text-sm leading-relaxed text-muted-foreground min-[414px]:max-w-[21rem] sm:mt-3 sm:max-w-xl sm:text-base">
-        Soluções para a realidade de cada ambiente. Projetos para empresas, indústrias
-        e espaços que buscam economia com a climatização.
-
+          Soluções para a realidade de cada ambiente. Projetos para empresas, indústrias e espaços
+          que buscam economia com a climatização.
         </p>
       </div>
 

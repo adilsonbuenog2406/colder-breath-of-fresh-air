@@ -9,7 +9,12 @@ const NAV = [
   { href: "/areas-de-atuacao", label: "Áreas de Atuação" },
   { href: "/solucoes/climatizadores-industriais", label: "Climatizadores Industriais" },
   { href: "/segmentos/climatizadores-para-igrejas", label: "Climatizadores para Igrejas" },
+  {
+    href: "/segmentos/climatizadores-para-supermercados",
+    label: "Climatizadores para Supermercados",
+  },
   { href: "/cidades/climatizadores-industriais-em-maringa", label: "Climatizadores em Maringá" },
+  { href: "/blog", label: "Blog" },
   { href: "/contato", label: "Contato" },
 ];
 

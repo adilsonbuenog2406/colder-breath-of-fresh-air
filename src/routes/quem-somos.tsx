@@ -43,8 +43,8 @@ function QuemSomosPage() {
             </span>
             <h1 className="mt-4 max-w-3xl text-4xl font-extrabold sm:text-5xl">Quem Somos</h1>
             <p className="mt-5 max-w-2xl text-white/78">
-              Uma equipe especializada em climatização inteligente, com análise técnica,
-              instalação própria e acompanhamento contínuo.
+              Uma equipe especializada em climatização inteligente, com análise técnica, instalação
+              própria e acompanhamento contínuo.
             </p>
           </div>
         </section>
