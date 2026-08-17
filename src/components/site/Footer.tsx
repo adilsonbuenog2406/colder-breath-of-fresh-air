@@ -66,7 +66,7 @@ export function Footer() {
                   href="https://www.instagram.com/colderclimatizadores/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-cyan-400"
+                  className="flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-white"
                 >
                   <Instagram className="h-4 w-4 shrink-0" />
                   Instagram

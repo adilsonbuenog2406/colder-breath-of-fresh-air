@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as QuemSomosRouteImport } from './routes/quem-somos'
+import { Route as MetaDotjsonRouteImport } from './routes/meta[.]json'
+import { Route as HealthRouteImport } from './routes/health'
 import { Route as FormularioInteressadosRouteImport } from './routes/formulario-interessados'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as AreasDeAtuacaoRouteImport } from './routes/areas-de-atuacao'
@@ -28,6 +30,16 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const QuemSomosRoute = QuemSomosRouteImport.update({
   id: '/quem-somos',
   path: '/quem-somos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MetaDotjsonRoute = MetaDotjsonRouteImport.update({
+  id: '/meta.json',
+  path: '/meta.json',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HealthRoute = HealthRouteImport.update({
+  id: '/health',
+  path: '/health',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FormularioInteressadosRoute = FormularioInteressadosRouteImport.update({
@@ -76,6 +88,8 @@ export interface FileRoutesByFullPath {
   '/areas-de-atuacao': typeof AreasDeAtuacaoRoute
   '/contato': typeof ContatoRoute
   '/formulario-interessados': typeof FormularioInteressadosRoute
+  '/health': typeof HealthRoute
+  '/meta.json': typeof MetaDotjsonRoute
   '/quem-somos': typeof QuemSomosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -88,6 +102,8 @@ export interface FileRoutesByTo {
   '/areas-de-atuacao': typeof AreasDeAtuacaoRoute
   '/contato': typeof ContatoRoute
   '/formulario-interessados': typeof FormularioInteressadosRoute
+  '/health': typeof HealthRoute
+  '/meta.json': typeof MetaDotjsonRoute
   '/quem-somos': typeof QuemSomosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -101,6 +117,8 @@ export interface FileRoutesById {
   '/areas-de-atuacao': typeof AreasDeAtuacaoRoute
   '/contato': typeof ContatoRoute
   '/formulario-interessados': typeof FormularioInteressadosRoute
+  '/health': typeof HealthRoute
+  '/meta.json': typeof MetaDotjsonRoute
   '/quem-somos': typeof QuemSomosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -115,6 +133,8 @@ export interface FileRouteTypes {
     | '/areas-de-atuacao'
     | '/contato'
     | '/formulario-interessados'
+    | '/health'
+    | '/meta.json'
     | '/quem-somos'
     | '/sitemap.xml'
     | '/blog/$slug'
@@ -127,6 +147,8 @@ export interface FileRouteTypes {
     | '/areas-de-atuacao'
     | '/contato'
     | '/formulario-interessados'
+    | '/health'
+    | '/meta.json'
     | '/quem-somos'
     | '/sitemap.xml'
     | '/blog/$slug'
@@ -139,6 +161,8 @@ export interface FileRouteTypes {
     | '/areas-de-atuacao'
     | '/contato'
     | '/formulario-interessados'
+    | '/health'
+    | '/meta.json'
     | '/quem-somos'
     | '/sitemap.xml'
     | '/blog/$slug'
@@ -152,6 +176,8 @@ export interface RootRouteChildren {
   AreasDeAtuacaoRoute: typeof AreasDeAtuacaoRoute
   ContatoRoute: typeof ContatoRoute
   FormularioInteressadosRoute: typeof FormularioInteressadosRoute
+  HealthRoute: typeof HealthRoute
+  MetaDotjsonRoute: typeof MetaDotjsonRoute
   QuemSomosRoute: typeof QuemSomosRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   BlogSlugRoute: typeof BlogSlugRoute
@@ -174,6 +200,20 @@ declare module '@tanstack/react-router' {
       path: '/quem-somos'
       fullPath: '/quem-somos'
       preLoaderRoute: typeof QuemSomosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/meta.json': {
+      id: '/meta.json'
+      path: '/meta.json'
+      fullPath: '/meta.json'
+      preLoaderRoute: typeof MetaDotjsonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/health': {
+      id: '/health'
+      path: '/health'
+      fullPath: '/health'
+      preLoaderRoute: typeof HealthRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/formulario-interessados': {
@@ -240,6 +280,8 @@ const rootRouteChildren: RootRouteChildren = {
   AreasDeAtuacaoRoute: AreasDeAtuacaoRoute,
   ContatoRoute: ContatoRoute,
   FormularioInteressadosRoute: FormularioInteressadosRoute,
+  HealthRoute: HealthRoute,
+  MetaDotjsonRoute: MetaDotjsonRoute,
   QuemSomosRoute: QuemSomosRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   BlogSlugRoute: BlogSlugRoute,

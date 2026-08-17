@@ -1,21 +1,62 @@
 import { ArrowRight } from "lucide-react";
 import { WHATSAPP_URL } from "@/lib/contact";
+import aquecedorPiramideImg from "@/assets/aquecedor.piramide.colder.png";
+import climatizadorC56Img from "@/assets/climatizador.c-56.colder.png";
+import climatizadorC23Img from "@/assets/climatizador.colder.c-13.png";
+import climatizadorC12Img from "@/assets/climatizadorc-12.colder.png";
+import climatizadorPort9000Img from "@/assets/climatizador.port.colder.png";
+import climatizadorPort10000Img from "@/assets/climatizador.portatil.colder.png";
+import climatizadorPort12000Img from "@/assets/climatizador.port.2.png";
 
-const PRODUCTS = [
+interface Product {
+  img: string;
+  title: string;
+  desc: string;
+  alt?: string;
+}
+
+const PRODUCTS: Product[] = [
   {
-    img: encodeURI("/climatizadorevaporativoindustrial.jpeg"),
-    title: "Climatizador evaporativo industrial",
-    desc: "Equipamento de alta vazão para galpões, indústrias e grandes áreas que exigem climatização eficiente.",
+    img: climatizadorC56Img,
+    title: "Climatizador Colder C-56",
+    desc: "Vazão de 56.000 m³/h, potência de 3.500 W e alcance de até 400 m² para grandes ambientes industriais.",
+    alt: "Climatizador Colder C-56",
   },
   {
-    img: encodeURI("/climatizador evaporativo industrial móvel.png"),
-    title: "Climatizador evaporativo industrial móvel",
-    desc: "Modelo móvel para flexibilidade de posicionamento em linhas de produção e ambientes industriais variados.",
+    img: climatizadorC23Img,
+    title: "Climatizador Colder C-23",
+    desc: "Vazão de 23.000 m³/h, potência de 1.500 W e alcance de até 200 m² com economia de até 90% de energia.",
+    alt: "Climatizador Colder C-23",
   },
   {
-    img: encodeURI("/climatizadorevaporativoportatil.jpg"),
-    title: "Climatizador evaporativo portátil",
-    desc: "Solução compacta e prática para escritórios, lojas e ambientes comerciais com instalação simples.",
+    img: climatizadorC12Img,
+    title: "Climatizador Colder C-12.000",
+    desc: "Vazão de 14.000 m³/h, reservatório de 70 litros e alcance de até 120 m² para ambientes amplos.",
+    alt: "Climatizador Colder C-12.000",
+  },
+  {
+    img: climatizadorPort9000Img,
+    title: "Climatizador Portátil C-9.000",
+    desc: "Vazão de 9.000 m³/h, reservatório de 70 litros e alcance de até 70 m² com instalação prática.",
+    alt: "Climatizador Portátil Colder C-9.000",
+  },
+  {
+    img: climatizadorPort10000Img,
+    title: "Climatizador Portátil C-10.000",
+    desc: "Vazão de 14.000 m³/h, reservatório de 70 litros e alcance de até 120 m² para uso flexível.",
+    alt: "Climatizador Portátil Colder C-10.000",
+  },
+  {
+    img: climatizadorPort12000Img,
+    title: "Climatizador Portátil C-12.000",
+    desc: "Vazão de 12.000 m³/h, reservatório de 90 litros, alcance de até 70 m² e função smart compatível com Alexa e Google Home.",
+    alt: "Climatizador Portátil Colder C-12.000",
+  },
+  {
+    img: aquecedorPiramideImg,
+    title: "Aquecedor Pirâmide de Inox",
+    desc: "Aquecedor a gás em aço inox para áreas externas, com alcance de 25 a 30 m² e acabamento premium.",
+    alt: "Aquecedor Pirâmide de Inox Colder",
   },
 ];
 
@@ -28,8 +69,11 @@ export function Products() {
             <span className="eyebrow">Produtos em destaque</span>
             <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Linhas para cada operação</h2>
             <p className="mt-3 text-muted-foreground">
-              Conheça soluções de climatização evaporativa para diferentes tamanhos de ambiente e
-              necessidades.
+              Produtos em destaque <br />
+              Conheça as máquinas Colder <br />
+              Nossos equipamentos fazem parte de um projeto desenvolvido para atender as
+              necessidades reais de cada ambiente, garantindo eficiência, economia e desempenho
+              no longo prazo.
             </p>
           </div>
         </div>
@@ -43,7 +87,7 @@ export function Products() {
               <div className="aspect-square overflow-hidden bg-white">
                 <img
                   src={p.img}
-                  alt={p.title}
+                  alt={p.alt ?? p.title}
                   width={1024}
                   height={1024}
                   loading="lazy"

@@ -34,7 +34,7 @@ export function Areas() {
                 className="grid h-12 w-12 place-items-center rounded-lg"
                 style={{ background: "var(--color-brand-soft)" }}
               >
-                <Icon className="h-6 w-6" style={{ color: "var(--color-brand)" }} />
+                <Icon className="h-6 w-6" style={{ color: "var(--color-brand-foreground)" }} />
               </div>
               <span className="text-sm font-medium">{label}</span>
             </div>

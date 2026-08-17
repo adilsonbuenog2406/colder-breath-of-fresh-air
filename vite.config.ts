@@ -9,6 +9,35 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 export default defineConfig({
   nitro: {
     preset: "heroku",
+    compressPublicAssets: { gzip: true, brotli: true },
+    routeRules: {
+      "/**": {
+        headers: {
+          "cache-control": "no-cache, no-store, must-revalidate",
+          pragma: "no-cache",
+          expires: "0",
+          "cdn-cache-control": "no-store",
+        },
+      },
+      "/assets/**": {
+        headers: { "cache-control": "public, max-age=31536000, immutable" },
+      },
+      "/video-04.mp4": {
+        headers: { "cache-control": "public, max-age=86400, must-revalidate" },
+      },
+      "/**/*.jpg": {
+        headers: { "cache-control": "public, max-age=604800" },
+      },
+      "/**/*.png": {
+        headers: { "cache-control": "public, max-age=604800" },
+      },
+      "/**/*.webp": {
+        headers: { "cache-control": "public, max-age=604800" },
+      },
+      "/**/*.webp": {
+        headers: { "cache-control": "public, max-age=604800" },
+      },
+    },
   },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).

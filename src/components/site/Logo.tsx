@@ -1,4 +1,4 @@
-import logo1 from "@/assets/logo1.png";
+import logo1 from "@/assets/logo1.webp";
 
 export function Logo({ light = false }: { light?: boolean }) {
   return (

@@ -45,7 +45,7 @@ export function Differentials() {
                 className="grid h-12 w-12 shrink-0 place-items-center rounded-lg"
                 style={{ background: "var(--color-brand-soft)" }}
               >
-                <Icon className="h-6 w-6" style={{ color: "var(--color-brand)" }} />
+                <Icon className="h-6 w-6" style={{ color: "var(--color-brand-foreground)" }} />
               </div>
               <div className="min-w-0">
                 <h3 className="text-lg font-semibold">{title}</h3>

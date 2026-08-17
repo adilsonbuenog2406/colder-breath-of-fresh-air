@@ -1,4 +1,4 @@
-const BUENO_MAESTRI_LOGO = encodeURI("/logo bueno&maestri branca png.png");
+const BUENO_MAESTRI_LOGO = "/bueno-maestri-logo.webp";
 const BUENO_MAESTRI_URL = "https://buenomaestri.com";
 
 export function DeveloperFooter() {

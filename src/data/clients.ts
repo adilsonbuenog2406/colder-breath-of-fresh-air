@@ -1,16 +1,20 @@
-import gelaBocaLogo from "@/assets/gelabocalogo.png";
-import grupoMetafaLogo from "@/assets/grupometafa.png";
-import uningaLogo from "@/assets/logouninga.png";
-import muscleWorldLogo from "@/assets/muscleworld.png";
-import pesaCatLogo from "@/assets/pesacat.png";
-import rionauticaLogo from "@/assets/rionauticalogo.png";
+import gelaBocaLogo from "@/assets/gelabocalogo.webp";
+import grupoMetafaLogo from "@/assets/grupometafa.webp";
+import muscleWorldLogo from "@/assets/muscleworld.webp";
+import pesaCatLogo from "@/assets/pesacat.webp";
+import rionauticaLogo from "@/assets/rionauticalogo.webp";
+import ironbeeLogo from "@/assets/IRONBEE.Logo.1.webp";
+import modeloLogo from "@/assets/MODELO.logo.webp";
+import fraccreiLogo from "@/assets/FRACCREI.logo.webp";
+import nxboatsLogo from "@/assets/Nxboats.logo.webp";
+import ccimLogo from "@/assets/CCIM.logo.2.webp";
 
 export interface Client {
   id: string;
   name: string;
-  logo?: string; // import direto: import logo from "@/assets/clients/nome.png"
-  alt?: string; // descrição acessível; padrão: "Logo <name>"
-  url?: string; // torna o card clicável (opcional)
+  logo?: string;
+  alt?: string;
+  url?: string;
   segment?: string;
 }
 
@@ -46,9 +50,33 @@ export const clients: Client[] = [
     alt: "Logo Grupo Metafa",
   },
   {
-    id: "uninga",
-    name: "Uningá",
-    logo: uningaLogo,
-    alt: "Logo Uningá",
+    id: "ironbee",
+    name: "Ironbee",
+    logo: ironbeeLogo,
+    alt: "Logo Ironbee",
+  },
+  {
+    id: "modelo",
+    name: "Modelo",
+    logo: modeloLogo,
+    alt: "Logo Modelo",
+  },
+  {
+    id: "fraccrei",
+    name: "Fraccrei",
+    logo: fraccreiLogo,
+    alt: "Logo Fraccrei",
+  },
+  {
+    id: "nxboats",
+    name: "Nxboats",
+    logo: nxboatsLogo,
+    alt: "Logo Nxboats",
+  },
+  {
+    id: "ccim",
+    name: "CCIM",
+    logo: ccimLogo,
+    alt: "Logo CCIM",
   },
 ];

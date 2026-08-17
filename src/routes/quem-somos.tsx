@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { About } from "@/components/site/About";
+import { ProjectProfessionalism } from "@/components/site/ProjectProfessionalism";
 import { Footer } from "@/components/site/Footer";
 import { Header } from "@/components/site/Header";
 import { Products } from "@/components/site/Products";
@@ -11,7 +12,7 @@ import { ORGANIZATION_SCHEMA } from "@/data/site";
 
 const TITLE = "Quem Somos | Colder Climatizadores";
 const DESCRIPTION =
-  "Conheca a Colder Climatizadores, especialista em climatizacao industrial e empresarial para empresas, galpoes, igrejas, clinicas e industrias.";
+  "Conheça a Colder Climatizadores, especialista em climatização industrial e empresarial para empresas, galpões, igrejas, clínicas e indústrias.";
 
 export const Route = createFileRoute("/quem-somos")({
   head: () =>
@@ -42,16 +43,17 @@ function QuemSomosPage() {
             </span>
             <h1 className="mt-4 max-w-3xl text-4xl font-extrabold sm:text-5xl">Quem Somos</h1>
             <p className="mt-5 max-w-2xl text-white/78">
-              Atuamos com solucoes de climatizacao evaporativa para empresas que precisam de
-              conforto termico, renovacao do ar e economia de energia.
+              Uma equipe especializada em climatização inteligente, com análise técnica,
+              instalação própria e acompanhamento contínuo.
             </p>
           </div>
         </section>
         <About />
+        <ProjectProfessionalism />
         <Products />
         <CTASection
-          title="Quer conhecer a melhor solucao para o seu ambiente?"
-          text="A equipe da Colder avalia o tipo de operacao, o espaco disponivel e a expectativa de conforto antes de indicar o projeto."
+          title="Quer conhecer a melhor solução para o seu ambiente?"
+          text="A equipe da Colder avalia o tipo de operação, o espaço disponível e a expectativa de conforto antes de indicar o projeto."
           buttonLabel="Falar com a Colder"
         />
       </main>

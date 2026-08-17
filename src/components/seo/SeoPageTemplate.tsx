@@ -1,8 +1,8 @@
-import heroImage from "@/assets/hero-industrial.jpg";
-import industrialImage from "@/assets/product-industrial.jpg";
-import portableImage from "@/assets/product-portable.jpg";
-import wallImage from "@/assets/product-wall.jpg";
-import waterImage from "@/assets/product-water.jpg";
+import heroImage from "@/assets/hero-industrial.webp";
+import industrialImage from "@/assets/product-industrial.webp";
+import portableImage from "@/assets/product-portable.webp";
+import wallImage from "@/assets/product-wall.webp";
+import waterImage from "@/assets/product-water.webp";
 import { CheckCircle2, MessageCircle } from "lucide-react";
 
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
@@ -10,6 +10,9 @@ import { CTASection } from "@/components/seo/CTASection";
 import { FAQSection } from "@/components/seo/FAQSection";
 import { Footer } from "@/components/site/Footer";
 import { Header } from "@/components/site/Header";
+import { Areas } from "@/components/site/Areas";
+import { Differentials } from "@/components/site/Differentials";
+import { Products } from "@/components/site/Products";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import type { BlogPage, ImageKey, SeoPage } from "@/data/seo-pages";
 import { WHATSAPP_URL } from "@/lib/contact";
@@ -23,7 +26,7 @@ const IMAGES: Record<ImageKey, string> = {
 };
 
 function pageGroupLabel(type: SeoPage["type"]) {
-  if (type === "solution") return "Solucoes";
+  if (type === "solution") return "Soluções";
   if (type === "segment") return "Segmentos";
   return "Cidades";
 }
@@ -33,6 +36,8 @@ function pageGroupHref(type: SeoPage["type"]) {
   if (type === "segment") return "/areas-de-atuacao";
   return "/cidades/climatizadores-industriais-no-parana";
 }
+
+const EQUIPAMENTOS_PAGE_PATH = "/solucoes/climatizadores-industriais";
 
 export function SeoPageTemplate({ page }: { page: SeoPage }) {
   return (
@@ -50,6 +55,15 @@ export function SeoPageTemplate({ page }: { page: SeoPage }) {
             { href: page.path, label: page.h1 },
           ]}
         />
+
+        {page.path === EQUIPAMENTOS_PAGE_PATH && (
+          <>
+            <Products />
+            <Differentials />
+          </>
+        )}
+
+        {page.type === "solution" && <Areas />}
 
         <section className="section-pad">
           <div className="container-page grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
@@ -76,7 +90,7 @@ export function SeoPageTemplate({ page }: { page: SeoPage }) {
             </div>
 
             <aside className="h-fit rounded-lg border border-border bg-surface p-6">
-              <h2 className="text-lg font-bold">Orcamento rapido</h2>
+              <h2 className="text-lg font-bold">Orçamento rápido</h2>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 Envie cidade, tipo de ambiente, metragem aproximada e fotos do local para a equipe
                 da Colder avaliar o melhor caminho.
@@ -107,7 +121,7 @@ export function SeoPageTemplate({ page }: { page: SeoPage }) {
         <FAQSection faq={page.faq} />
         <CTASection
           title={`Solicite um projeto para ${page.h1.toLowerCase()}`}
-          text="A Colder dimensiona climatizadores conforme o ambiente, a rotina de uso e a expectativa de conforto termico da sua empresa."
+          text="A Colder dimensiona climatizadores conforme o ambiente, a rotina de uso e a expectativa de conforto térmico da sua empresa."
           buttonLabel="Falar pelo WhatsApp"
         />
       </main>
@@ -120,7 +134,7 @@ export function BlogArticleTemplate({ page }: { page: BlogPage }) {
     <SiteFrame>
       <main>
         <SeoHero
-          eyebrow="Guia de climatizacao"
+          eyebrow="Guia de climatização"
           h1={page.h1}
           subtitle={page.subtitle}
           image={IMAGES[page.imageKey]}
@@ -153,9 +167,9 @@ export function BlogArticleTemplate({ page }: { page: BlogPage }) {
             </div>
 
             <aside className="h-fit rounded-lg border border-border bg-surface p-6">
-              <h2 className="text-lg font-bold">Pagina comercial relacionada</h2>
+              <h2 className="text-lg font-bold">Página comercial relacionada</h2>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                Depois de entender o tema, veja a solucao comercial correspondente.
+                Depois de entender o tema, veja a solução comercial correspondente.
               </p>
               <a href={page.commercialLink.href} className="btn-primary mt-5 w-full">
                 {page.commercialLink.label}
@@ -166,9 +180,9 @@ export function BlogArticleTemplate({ page }: { page: BlogPage }) {
 
         <FAQSection faq={page.faq} />
         <CTASection
-          title="Precisa de uma avaliacao para sua empresa?"
-          text="Fale com a Colder para entender qual solucao se encaixa melhor no seu ambiente."
-          buttonLabel="Solicitar orcamento"
+          title="Precisa de uma avaliação para sua empresa?"
+          text="Fale com a Colder para entender qual solução se encaixa melhor no seu ambiente."
+          buttonLabel="Solicitar orçamento"
         />
       </main>
     </SiteFrame>

@@ -5,16 +5,17 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
+    "build": "npm run optimize:media && vite build",
     "build:dev": "vite build --mode development",
-    "start": "node .output/server/index.mjs",
+    "optimize:media": "sh scripts/optimize-media.sh",
+    "start": "node scripts/start-prod.mjs",
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
   "engines": {
-    "node": "22.x",
-    "npm": "10.x"
+    "node": "24.x",
+    "npm": "11.x"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

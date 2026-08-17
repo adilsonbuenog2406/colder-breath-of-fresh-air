@@ -1,24 +1,24 @@
-import heroImage from "@/assets/hero-industrial.jpg";
-import videoSrc from "@/assets/video-04.mp4";
 import { ArrowRight } from "lucide-react";
+
+const HERO_VIDEO_URL = "/video-04.mp4";
 
 export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[min(660px,82svh)] items-start overflow-hidden md:min-h-[88vh] md:items-center"
+      className="relative flex min-h-[min(660px,82svh)] items-start overflow-hidden bg-primary md:min-h-[88vh] md:items-center"
     >
       <video
-        src={videoSrc}
-        poster={heroImage}
         autoPlay
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
         aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover object-[58%_center] md:object-center"
-      />
+      >
+        <source src={HERO_VIDEO_URL} type="video/mp4" />
+      </video>
       <div
         className="absolute inset-0"
         style={{
@@ -31,10 +31,12 @@ export function Hero() {
           Climatização industrial e empresarial
         </span>
         <h1 className="mx-auto mt-5 max-w-[90vw] text-balance font-display text-[36px] font-extrabold leading-[0.96] min-[390px]:text-[38px] min-[414px]:text-[40px] min-[430px]:text-[42px] sm:text-5xl md:text-6xl md:leading-[1.05] lg:text-7xl">
-          <span>Colder</span> <span className="block md:inline">Climatizadores</span>
+          <span>Climatizadores</span> <span className="block md:inline">Inteligentes</span>
         </h1>
         <p className="mx-auto mt-4 max-w-[320px] text-pretty text-lg leading-relaxed text-white/86 md:mt-5 md:max-w-2xl md:text-xl">
-          Especialistas em climatização para indústrias e empresas.
+        Projetos para grandes ambientes, com análise técnica, equipe própria especializada e
+        acompanhamento contínuo para garantir eficiência, conforto e economia.
+
         </p>
         <div className="mt-7 flex flex-col items-center justify-center gap-2.5 md:mt-9 md:flex-row md:flex-wrap md:gap-3">
           <a

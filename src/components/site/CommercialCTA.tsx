@@ -2,7 +2,7 @@ import { Check, ArrowRight } from "lucide-react";
 import { WHATSAPP_URL } from "@/lib/contact";
 
 const BENEFITS = [
-  "Reduz a temperatura ambiente em até 15°C",
+  "Reduz a temperatura ambiente em até 16°C",
   "Economiza até 90% de energia",
   "Muito mais silencioso",
   "Purifica e umidifica o ar",
@@ -16,7 +16,7 @@ export function CommercialCTA() {
           className="overflow-hidden rounded-2xl border border-border p-8 sm:p-12 lg:p-16"
           style={{
             background:
-              "linear-gradient(135deg, var(--color-primary) 0%, oklch(0.32 0.04 240) 100%)",
+              "linear-gradient(135deg, var(--color-primary) 0%, color-mix(in oklch, var(--color-primary) 95%, white) 100%)",
           }}
         >
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
@@ -46,7 +46,7 @@ export function CommercialCTA() {
                 >
                   <Check
                     className="mt-0.5 h-5 w-5 shrink-0"
-                    style={{ color: "var(--color-brand)" }}
+                    style={{ color: "var(--color-brand-foreground)" }}
                   />
                   <span>{b}</span>
                 </li>

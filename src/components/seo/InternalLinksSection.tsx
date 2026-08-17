@@ -6,7 +6,7 @@ export function InternalLinksSection({ links }: { links: SeoRelatedLink[] }) {
       <div className="container-page">
         <span className="eyebrow">Links relacionados</span>
         <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-          Continue explorando solucoes da Colder
+          Continue explorando soluções da Colder
         </h2>
         <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {links.map((link) => (

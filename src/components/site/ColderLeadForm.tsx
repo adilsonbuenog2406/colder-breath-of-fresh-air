@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { Building2, CheckCircle, MessageCircle, Thermometer, Wind, Zap } from "lucide-react";
 
-import logo1 from "@/assets/logo1.png";
+import logo1 from "@/assets/logo1.webp";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -150,7 +150,7 @@ export function ColderLeadForm() {
     <section
       className="px-4 pb-10 pt-[4.25rem] lg:section-pad lg:px-0 lg:pb-16 lg:pt-28"
       style={{
-        background: "linear-gradient(180deg, white 0%, var(--color-brand-soft) 100%)",
+        background: "linear-gradient(180deg, white 0%, color-mix(in oklch, var(--color-primary) 6%, white) 100%)",
       }}
     >
       <div className="container-page">
@@ -276,7 +276,7 @@ export function ColderLeadForm() {
                     className="grid h-10 w-10 shrink-0 place-items-center rounded-lg"
                     style={{ background: "var(--color-brand-soft)" }}
                   >
-                    <Icon className="h-5 w-5" style={{ color: "var(--color-brand)" }} />
+                    <Icon className="h-5 w-5" style={{ color: "var(--color-brand-foreground)" }} />
                   </div>
                   <span className="pt-2 text-sm font-medium text-foreground sm:text-base">
                     {title}

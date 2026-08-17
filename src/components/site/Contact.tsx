@@ -73,7 +73,7 @@ function ContactItem({
         className="grid h-10 w-10 shrink-0 place-items-center rounded-lg"
         style={{ background: "var(--color-brand-soft)" }}
       >
-        <Icon className="h-5 w-5" style={{ color: "var(--color-brand)" }} />
+        <Icon className="h-5 w-5" style={{ color: "var(--color-brand-foreground)" }} />
       </div>
       <div className="min-w-0">
         <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">

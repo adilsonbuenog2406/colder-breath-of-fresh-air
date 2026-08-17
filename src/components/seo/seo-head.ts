@@ -82,7 +82,7 @@ export function serviceSchema(page: SeoPage) {
           "@type": page.localArea === "Paraná" ? "AdministrativeArea" : "City",
           name: page.localArea,
         }
-      : { "@type": "AdministrativeArea", name: "Parana" },
+      : { "@type": "AdministrativeArea", name: "Paraná" },
     url: canonicalUrl(page.path),
   };
 }
@@ -112,7 +112,7 @@ export function schemasForSeoPage(page: SeoPage) {
       { name: "Home", path: "/" },
       {
         name:
-          page.type === "solution" ? "Solucoes" : page.type === "segment" ? "Segmentos" : "Cidades",
+          page.type === "solution" ? "Soluções" : page.type === "segment" ? "Segmentos" : "Cidades",
         path:
           page.type === "solution"
             ? "/solucoes/climatizadores-industriais"

@@ -21,8 +21,8 @@ export const ORGANIZATION_SCHEMA = {
     addressCountry: "BR",
   },
   areaServed: [
-    { "@type": "AdministrativeArea", name: "Parana" },
-    { "@type": "City", name: "Maringa" },
+    { "@type": "AdministrativeArea", name: "Paraná" },
+    { "@type": "City", name: "Maringá" },
     { "@type": "City", name: "Londrina" },
     { "@type": "City", name: "Curitiba" },
   ],
@@ -38,6 +38,6 @@ export const ORGANIZATION_SCHEMA = {
 export const MAIN_ROUTES = [
   { path: "/", label: "Home" },
   { path: "/quem-somos", label: "Quem Somos" },
-  { path: "/areas-de-atuacao", label: "Areas de Atuacao" },
+  { path: "/areas-de-atuacao", label: "Áreas de Atuação" },
   { path: "/contato", label: "Contato" },
 ];

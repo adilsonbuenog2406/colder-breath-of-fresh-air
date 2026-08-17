@@ -17,7 +17,7 @@ export function CTASection({
           className="rounded-lg border border-border p-7 sm:p-10 lg:p-12"
           style={{
             background:
-              "linear-gradient(135deg, var(--color-primary) 0%, oklch(0.34 0.035 240) 100%)",
+              "linear-gradient(135deg, var(--color-primary) 0%, color-mix(in oklch, var(--color-primary) 95%, white) 100%)",
           }}
         >
           <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">

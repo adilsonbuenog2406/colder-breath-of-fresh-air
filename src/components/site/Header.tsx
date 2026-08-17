@@ -8,7 +8,7 @@ const NAV = [
   { href: "/", label: "Home" },
   { href: "/quem-somos", label: "Quem Somos" },
   { href: "/areas-de-atuacao", label: "Áreas de Atuação" },
-  { href: "/solucoes/climatizadores-industriais", label: "Soluções" },
+  { href: "/solucoes/climatizadores-industriais", label: "Equipamentos" },
   { href: "/contato", label: "Contato" },
 ];
 
@@ -39,12 +39,12 @@ export function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         headerSolid
-          ? "bg-[var(--color-brand)] shadow-[0_4px_16px_rgba(15,23,42,0.18)]"
+          ? "bg-[var(--color-primary)] shadow-[0_4px_16px_rgba(15,23,42,0.18)]"
           : "bg-transparent"
       }`}
     >
       <div className="container-page site-header-inner flex h-14 items-center justify-between md:h-16">
-        {/* Logo — sempre branca: o header fica sobre hero escuro ou fundo brand */}
+        {/* Logo — sempre branca sobre hero ou fundo primário do header */}
         <Logo light />
 
         {/* Nav desktop */}
@@ -66,13 +66,7 @@ export function Header() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className={
-              headerSolid
-                ? /* Estado scrollado: branco com texto escuro */
-                  "inline-flex items-center justify-center gap-2 rounded-lg px-[1.4rem] py-[0.8rem] text-[0.95rem] font-semibold bg-white text-foreground shadow-sm transition-all duration-200 hover:bg-slate-50 hover:shadow-md hover:-translate-y-px"
-                : /* Estado hero: btn-primary padrão (brand cyan) */
-                  "btn-primary"
-            }
+            className="inline-flex items-center justify-center gap-2 rounded-lg px-[1.4rem] py-[0.8rem] text-[0.95rem] font-semibold bg-white text-foreground shadow-sm transition-all duration-200 hover:bg-slate-50 hover:shadow-md hover:-translate-y-px"
           >
             <MessageCircle className="h-4 w-4" />
             WhatsApp
@@ -96,8 +90,8 @@ export function Header() {
         <div
           className={`md:hidden border-t transition-colors duration-300 ${
             headerSolid
-              ? "border-white/20 bg-[var(--color-brand)]"
-              : "border-white/10 bg-[rgba(15,23,42,0.92)] backdrop-blur-md"
+              ? "border-white/20 bg-[var(--color-primary)]"
+              : "border-white/20 bg-[var(--color-primary)]/95 backdrop-blur-md"
           }`}
         >
           <nav
