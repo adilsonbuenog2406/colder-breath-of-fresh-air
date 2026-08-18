@@ -1,52 +1,61 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
-import heroPoster from "@/assets/hero-industrial.webp";
 
-const HERO_VIDEO_URL = "/video-04.mp4";
+export const HERO_VIDEO_URL = "/video-04.mp4";
+export const HERO_VIDEO_MOBILE_URL = "/video-04-mobile.mp4";
 
 export function Hero() {
-  const [allowVideo, setAllowVideo] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoReady, setVideoReady] = useState(false);
 
   useEffect(() => {
-    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const isMobile = window.matchMedia("(max-width: 767px)").matches;
-    setAllowVideo(!media.matches && !isMobile);
+    const video = videoRef.current;
+    if (!video) return;
 
-    const onChange = () => {
-      setAllowVideo(!media.matches && !window.matchMedia("(max-width: 767px)").matches);
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (reduceMotion.matches) {
+      video.pause();
+      video.removeAttribute("autoplay");
+      return;
+    }
+
+    const markReady = () => setVideoReady(true);
+    video.addEventListener("playing", markReady);
+    video.addEventListener("canplay", markReady);
+
+    const play = video.play();
+    if (play && typeof play.catch === "function") {
+      play.catch(() => {
+        // Autoplay can be blocked; keep the black background until a user gesture.
+      });
+    }
+
+    return () => {
+      video.removeEventListener("playing", markReady);
+      video.removeEventListener("canplay", markReady);
     };
-    media.addEventListener("change", onChange);
-    return () => media.removeEventListener("change", onChange);
   }, []);
 
   return (
     <section
       id="top"
-      className="relative flex min-h-[min(660px,82svh)] items-start overflow-hidden bg-primary md:min-h-[88vh] md:items-center"
+      className="relative flex min-h-[min(660px,82svh)] items-start overflow-hidden bg-black md:min-h-[88vh] md:items-center"
     >
-      <img
-        src={heroPoster}
-        alt=""
-        width={1920}
-        height={1080}
-        fetchPriority="high"
-        decoding="async"
-        className="absolute inset-0 h-full w-full object-cover object-[58%_center] md:object-center"
-      />
-      {allowVideo && (
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="none"
-          poster={heroPoster}
-          aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover object-[58%_center] md:object-center"
-        >
-          <source src={HERO_VIDEO_URL} type="video/mp4" />
-        </video>
-      )}
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        aria-hidden="true"
+        className={`absolute inset-0 h-full w-full object-cover object-[58%_center] transition-opacity duration-500 md:object-center ${
+          videoReady ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <source src={HERO_VIDEO_MOBILE_URL} type="video/mp4" media="(max-width: 767px)" />
+        <source src={HERO_VIDEO_URL} type="video/mp4" />
+      </video>
       <div
         className="absolute inset-0"
         style={{

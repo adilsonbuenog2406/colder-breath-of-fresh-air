@@ -1,4 +1,4 @@
-import bannerAutomacao from "@/assets/banner.automação (2).png";
+import bannerAutomacao from "@/assets/banner.automação (2).webp";
 import { WHATSAPP_URL } from "@/lib/contact";
 
 export function AutomationBanner() {

@@ -134,14 +134,15 @@ test("numeric marketing claims are qualified or removed from home modules", () =
   }
 });
 
-test("hero avoids high-priority video preload", () => {
+test("hero video is in first HTML and starts loading immediately", () => {
   const home = readFileSync(src("routes", "index.tsx"), "utf8");
-  assert.doesNotMatch(home, /fetchPriority:\s*"high"/);
-  assert.doesNotMatch(home, /preload.*video/s);
+  assert.match(home, /as:\s*"video"/);
+  assert.match(home, /HERO_VIDEO_URL/);
   const hero = readFileSync(src("components", "site", "Hero.tsx"), "utf8");
-  assert.match(hero, /preload="none"/);
+  assert.match(hero, /preload="auto"/);
+  assert.match(hero, /bg-black/);
   assert.match(hero, /prefers-reduced-motion/);
-  assert.match(hero, /hero-industrial\.webp/);
+  assert.match(hero, /video-04-mobile\.mp4/);
 });
 
 test("HTML cache strategy is public SWR, not global no-store", () => {

@@ -1,12 +1,12 @@
 import { ArrowRight } from "lucide-react";
 import { WHATSAPP_URL } from "@/lib/contact";
-import aquecedorPiramideImg from "@/assets/aquecedor.piramide.colder.png";
-import climatizadorC56Img from "@/assets/climatizador.c-56.colder.png";
-import climatizadorC23Img from "@/assets/climatizador.colder.c-13.png";
-import climatizadorC12Img from "@/assets/climatizadorc-12.colder.png";
-import climatizadorPort9000Img from "@/assets/climatizador.port.colder.png";
-import climatizadorPort10000Img from "@/assets/climatizador.portatil.colder.png";
-import climatizadorPort12000Img from "@/assets/climatizador.port.2.png";
+import aquecedorPiramideImg from "@/assets/aquecedor.piramide.colder.webp";
+import climatizadorC56Img from "@/assets/climatizador.c-56.colder.webp";
+import climatizadorC23Img from "@/assets/climatizador.colder.c-13.webp";
+import climatizadorC12Img from "@/assets/climatizadorc-12.colder.webp";
+import climatizadorPort9000Img from "@/assets/climatizador.port.colder.webp";
+import climatizadorPort10000Img from "@/assets/climatizador.portatil.colder.webp";
+import climatizadorPort12000Img from "@/assets/climatizador.port.2.webp";
 
 interface Product {
   img: string;
@@ -91,6 +91,7 @@ export function Products() {
                   width={1024}
                   height={1024}
                   loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-contain p-4 transition-transform duration-500 hover:scale-105"
                 />
               </div>

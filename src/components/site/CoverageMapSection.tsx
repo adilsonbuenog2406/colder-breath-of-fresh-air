@@ -1,4 +1,4 @@
-import mapaAtuacaoImg from "@/assets/mapa.colder.2.png";
+import mapaAtuacaoImg from "@/assets/mapa.colder.2.webp";
 
 const LEGEND_ITEMS = [
   { label: "PR (inteiro)", color: "#1a5c66" },

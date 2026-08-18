@@ -1,7 +1,7 @@
 import { Suspense, lazy } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/site/Header";
-import { Hero } from "@/components/site/Hero";
+import { Hero, HERO_VIDEO_MOBILE_URL, HERO_VIDEO_URL } from "@/components/site/Hero";
 import { WhyColder } from "@/components/site/WhyColder";
 import { AutomationBanner } from "@/components/site/AutomationBanner";
 import { Footer } from "@/components/site/Footer";
@@ -82,7 +82,26 @@ export const Route = createFileRoute("/")({
       ],
     });
 
-    return seo;
+    return {
+      ...seo,
+      links: [
+        ...(seo.links ?? []),
+        {
+          rel: "preload",
+          as: "video",
+          href: HERO_VIDEO_MOBILE_URL,
+          type: "video/mp4",
+          media: "(max-width: 767px)",
+        },
+        {
+          rel: "preload",
+          as: "video",
+          href: HERO_VIDEO_URL,
+          type: "video/mp4",
+          media: "(min-width: 768px)",
+        },
+      ],
+    };
   },
   component: Index,
 });

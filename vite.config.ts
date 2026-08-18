@@ -27,7 +27,10 @@ export default defineConfig({
         headers: { "cache-control": "public, max-age=31536000, immutable" },
       },
       "/video-04.mp4": {
-        headers: { "cache-control": "public, max-age=86400, must-revalidate" },
+        headers: { "cache-control": "public, max-age=604800, immutable" },
+      },
+      "/video-04-mobile.mp4": {
+        headers: { "cache-control": "public, max-age=604800, immutable" },
       },
       "/**/*.jpg": {
         headers: { "cache-control": "public, max-age=604800" },

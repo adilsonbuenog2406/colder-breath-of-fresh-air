@@ -16,6 +16,9 @@ if ! need_cmd ffmpeg || ! need_cmd cwebp; then
     cp "$ASSETS/video-04.mp4" "$PUBLIC/video-04.mp4"
     echo "  published: $PUBLIC/video-04.mp4 (unoptimized)"
   fi
+  if [ -f "$PUBLIC/video-04-mobile.mp4" ]; then
+    echo "  kept: $PUBLIC/video-04-mobile.mp4"
+  fi
   echo "==> Media optimization skipped"
   exit 0
 fi
@@ -70,13 +73,20 @@ max_width_for_asset() {
 echo "==> Compressing hero video (MP4)"
 if [ -f "$ASSETS/video-04.mp4" ]; then
   ffmpeg -y -loglevel error -i "$ASSETS/video-04.mp4" \
-    -vf "scale='min(1280,iw)':-2" \
-    -c:v libx264 -crf 34 -preset slow -an -movflags +faststart \
+    -vf "scale='min(960,iw)':-2" \
+    -c:v libx264 -pix_fmt yuv420p -profile:v baseline -level 3.1 \
+    -crf 30 -preset slow -an -movflags +faststart \
     "$ASSETS/video-04.optimized.mp4"
   mv "$ASSETS/video-04.optimized.mp4" "$ASSETS/video-04.mp4"
   cp "$ASSETS/video-04.mp4" "$PUBLIC/video-04.mp4"
-  rm -f "$ASSETS/video-04.webm"
+
+  ffmpeg -y -loglevel error -i "$ASSETS/video-04.mp4" \
+    -vf "scale='min(640,iw)':-2" \
+    -c:v libx264 -pix_fmt yuv420p -profile:v baseline -level 3.0 \
+    -crf 32 -preset slow -an -movflags +faststart \
+    "$PUBLIC/video-04-mobile.mp4"
   echo "  published: $PUBLIC/video-04.mp4"
+  echo "  published: $PUBLIC/video-04-mobile.mp4"
 fi
 
 echo "==> Optimizing hero poster + OG image"
